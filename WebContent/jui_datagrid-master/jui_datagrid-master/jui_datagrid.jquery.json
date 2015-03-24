@@ -1,0 +1,43 @@
+{
+    "name": "jui_datagrid",
+    "version": "0.9.1",
+    "title": "jui_datagrid jQuery plugin",
+    "author": {
+        "name": "Christos Pontikis",
+        "email": "christos@pontikis.net",
+        "url": "http://pontikis.net"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://raw.github.com/pontikis/jui_datagrid/master/MIT_LICENSE"
+        }
+    ],
+    "dependencies": {
+        "jquery": ">=1.6",
+        "jquery-ui": ">=1.8",
+        "jui_pagination": ">=2.0.0",
+        "jui_filter_rules": ">=1.0.3",
+        "jui_dropdown": ">=1.0.4",
+        "momentjs": ">=2.2.1",
+        "bowser": ">=0.3.1"
+    },
+    "description": "jui_datagrid is an Ajax-enabled jQuery plugin, useful to manipulate database data in tabular format. Fully customizable, simple but powerful API, jQuery themes compatible, localization support. It has a modular design, so it is using jui_pagination plugin for paging and jui_filter_rules plugin for searching.",
+    "homepage": "http://pontikis.net/labs/jui_datagrid",
+    "docs": "http://pontikis.net/labs/jui_datagrid/docs",
+    "demo": "http://pontikis.net/labs/jui_datagrid/demo",
+    "download": "https://github.com/pontikis/jui_datagrid/archive/master.zip",
+    "keywords": [
+        "grid",
+        "datagrid",
+        "table",
+        "database",
+        "paging",
+        "sorting",
+        "searching",
+        "jqueryui-themable",
+        "themable",
+        "ui"
+    ],
+    "bugs": "https://github.com/pontikis/jui_datagrid/issues"
+}

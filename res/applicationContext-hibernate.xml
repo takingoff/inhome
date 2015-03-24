@@ -11,16 +11,25 @@
 
 
 	<!-- mysql dataSource sessionFactory 配置 -->
-	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" 
-		destroy-method="close"> <property name="driverClass" value="org.gjt.mm.mysql.Driver" 
-		/> <property name="jdbcUrl" value="jdbc:mysql://localhost/test" /> <property 
-		name="minPoolSize" value="5" /> <property name="maxPoolSize" value="30" /> 
-		<property name="maxIdleTime" value="30" /> </bean> <bean id="sessionFactory" 
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> <property 
-		name="dataSource" ref="dataSource" /> <property name="packagesToScan" value="tang.li.inn.entity" 
-		/> <property name="hibernateProperties"> <value> hibernate.dialect=org.hibernate.dialect.MySQLDialect 
-		hibernate.show_sql=true hibernate.connection.username=sa hibernate.connection.password=sa 
-		</value> </property> </bean> -->
+<!-- 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" -->
+<!-- 		destroy-method="close"> -->
+<!-- 		<property name="driverClass" value="org.gjt.mm.mysql.Driver" /> -->
+<!-- 		<property name="jdbcUrl" value="jdbc:mysql://localhost/test" /> -->
+<!-- 		<property name="minPoolSize" value="5" /> -->
+<!-- 		<property name="maxPoolSize" value="30" /> -->
+<!-- 		<property name="maxIdleTime" value="30" /> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="sessionFactory" -->
+<!-- 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> -->
+<!-- 		<property name="dataSource" ref="dataSource" /> -->
+<!-- 		<property name="packagesToScan" value="tang.li.inn.entity" /> -->
+<!-- 		<property name="hibernateProperties"> -->
+<!-- 			<value> hibernate.dialect=org.hibernate.dialect.MySQLDialect -->
+<!-- 				hibernate.show_sql=true hibernate.connection.username=sa -->
+<!-- 				hibernate.connection.password=sa -->
+<!-- 			</value> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 
 
 	<!-- sqlite dataSource sessionFactory 配置 -->
@@ -32,7 +41,6 @@
 		<property name="minPoolSize" value="5" />
 		<property name="maxPoolSize" value="30" />
 		<property name="maxIdleTime" value="30" />
-		<!-- <property name="autoCommitOnClose" value="true" /> -->
 	</bean>
 
 	<bean id="sessionFactory"

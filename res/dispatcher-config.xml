@@ -73,12 +73,12 @@
 
 	<bean id="handlerMapping"
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
-<!-- 		<property name="interceptors"> -->
-<!-- 			<ref bean="accessInterceptor"></ref> -->
-<!-- 		</property> -->
+		<property name="interceptors">
+			<ref bean="accessInterceptor"></ref>
+		</property>
 	</bean>
 
-<!-- 	<bean id="accessInterceptor" class="tang.li.inn.mis.util.AccessInterceptor" /> -->
+	<bean id="accessInterceptor" class="tang.li.inn.mis.util.AccessInterceptor" />
 
 
 </beans>
