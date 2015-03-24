@@ -8,7 +8,7 @@ function ajaxRequestJsonData(index,rowsPerPage)
 {
 	$.ajax(
 	{
-		url : '/InnMIS/roomType/listRoomType.do?rowsPerPage=' + rowsPerPage + '&index=' + index,
+		url : '/inhome/roomType/listRoomType.do?rowsPerPage=' + rowsPerPage + '&index=' + index,
 		type : 'POST',// 这个地方如果不用post ie浏览器中登录退出后不会访问url直接进入success中导致无法登录。
 		dataType:"json", //产生效果  Accept:application/json, text/javascript, */*;  但并不是必要的。因为spring会默认使用json
 		success : function(data)

@@ -1,5 +1,5 @@
  /**   
-* projectName: InnMIS
+* projectName: InHome
 *
 * fileName: BillPayVo.java 
 *

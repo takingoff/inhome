@@ -40,23 +40,23 @@ function urlRequestAndBack(url1,data,url2)
 // 改变背景
 function changeInnEntry(key,id)
 {
-	var url = '/InnMIS/common/changeInnEntry.do';
+	var url = '/inhome/common/changeInnEntry.do';
 	var data =
 	{
 		key : key,
 		value : $("#" + id).val()
 	};
-	urlRequestAndBack(url, data, '/InnMIS/common/controlCenter.do');
+	urlRequestAndBack(url, data, '/inhome/common/controlCenter.do');
 }
 // 刷新按钮
 function freshClick()
 {
-	window.location.href = '/InnMIS/common/controlCenter.do';
+	window.location.href = '/inhome/common/controlCenter.do';
 }
 // 退出登录
 function staffLogout()
 {
-	window.location.href = '/InnMIS/common/logout.do';
+	window.location.href = '/inhome/common/logout.do';
 }
 // 刷新房态
 function refreshRoomTrend()
@@ -79,7 +79,7 @@ function changeRoomView()
 		}
 		else
 		{
-			$("#iframeRoomPage").attr("src", "/InnMIS/room/roomPageView.do");
+			$("#iframeRoomPage").attr("src", "/inhome/room/roomPageView.do");
 			roomPageHasRequest = true;
 		}
 	}
@@ -109,7 +109,7 @@ function displayRoomTypeiframe()
 	displayAiframe("iframeRoomType");
 	if (roomTypeHasBeRequest)
 		return;
-	$("#iframeRoomType").attr("src", "/InnMIS/roomType/roomType.do");
+	$("#iframeRoomType").attr("src", "/inhome/roomType/roomType.do");
 	roomTypeHasBeRequest = true;
 }
 
@@ -120,7 +120,7 @@ function displayEnteredInfoiframe()
 	displayAiframe("iframeEnteredInfo");
 	if (enteredInfoHasBeRequest)
 		return;
-	$("#iframeEnteredInfo").attr("src", "/InnMIS/entered/enteredPageView.do");
+	$("#iframeEnteredInfo").attr("src", "/inhome/entered/enteredPageView.do");
 	enteredInfoHasBeRequest = true;
 }
 
@@ -131,7 +131,7 @@ function displayBilliframe()
 	displayAiframe("iframeBill");
 	if (billHasBeRequest)
 		return;
-	$("#iframeBill").attr("src", "/InnMIS/common/billPage.do");
+	$("#iframeBill").attr("src", "/inhome/common/billPage.do");
 	billHasBeRequest = true;
 }
 

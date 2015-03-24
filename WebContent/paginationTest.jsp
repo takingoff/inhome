@@ -7,11 +7,11 @@
 
 <%@include file="/jsp/juiNeed.jsp" %>
 
-<script type="text/javascript" src="/InnMIS/js/common/jui.js"></script>
+<script type="text/javascript" src="/inhome/js/common/jui.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="/InnMIS/css/roomType/miniPaginationRoomType.css" />
+	href="/inhome/css/roomType/miniPaginationRoomType.css" />
 <link rel="stylesheet" type="text/css"
-	href="/InnMIS/css/room/miniPaginationRoom.css" />
+	href="/inhome/css/room/miniPaginationRoom.css" />
 
 <style type="text/css">
 
@@ -144,7 +144,7 @@ body{
 		{
 		
 			dlgFiltersClass : 'grid1_filters',  //过滤器对话框的风格
-			ajaxFetchDataURL : '/InnMIS/order/orderPage.do', //数据请求地址
+			ajaxFetchDataURL : '/inhome/order/orderPage.do', //数据请求地址
 			row_primary_key: 'id',//列主键 必须为不重复的整数 。。。。太尼玛坑爹了。
 			containerClass : 'grid1_container ui-state-default ui-corner-all', //整个表格的风格
 			datagridClass : 'grid1_data ui-widget-content',//数据区的风格
@@ -355,7 +355,7 @@ body{
 			{
 				$.ajax(
 					{
-						url : '/InnMIS/order/orderGet.do',
+						url : '/inhome/order/orderGet.do',
 						data : JSON.stringify(data.row_id),
 						contentType : "application/json",
 						type : 'POST', 
@@ -400,7 +400,7 @@ body{
 		{
 			$.ajax(
 			{
-				url : '/InnMIS/order/orderAdd.do',
+				url : '/inhome/order/orderAdd.do',
 				type : 'POST',
 				data : $(this).serialize(),
 				success : function(data)
@@ -417,7 +417,7 @@ body{
 		{
 			$.ajax(
 			{
-				url : '/InnMIS/order/orderModify.do',
+				url : '/inhome/order/orderModify.do',
 				type : 'POST',
 				data : $(this).serialize(),
 				success : function(data)
@@ -445,13 +445,13 @@ body{
 
 function deleteAOrder()
 {
-	deleteAEntity("entityForm","id","entityDialog","paginationDIV","/InnMIS/order/orderDelete.do");
+	deleteAEntity("entityForm","id","entityDialog","paginationDIV","/inhome/order/orderDelete.do");
 
 }
 
 function deleteOrder(idJson)
 {
-	deleteEntity("paginationDIV","/InnMIS/order/orderDelete.do",idJson);
+	deleteEntity("paginationDIV","/inhome/order/orderDelete.do",idJson);
 }
 
 	

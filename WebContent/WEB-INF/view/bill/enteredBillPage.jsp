@@ -40,8 +40,8 @@ h2{
 </style>
 
 <link rel="stylesheet" type="text/css"
-	href="/InnMIS/css/bill/bill.css" />
-<script type="text/javascript" src="/InnMIS/js/bill/bill.js"></script>
+	href="/inhome/css/bill/bill.css" />
+<script type="text/javascript" src="/inhome/js/bill/bill.js"></script>
 
 
 
@@ -79,12 +79,12 @@ h2{
 			}
 		});
 		
-		initialBillRoom("billRoomPaginationDIV",'/InnMIS/billRoom/billRoomPage.do?enteredId=${enteredId}',function(id){});
+		initialBillRoom("billRoomPaginationDIV",'/inhome/billRoom/billRoomPage.do?enteredId=${enteredId}',function(id){});
 		
-		initialBillPay("billPayPaginationDIV",'/InnMIS/billPay/billPayPage.do?enteredId=${enteredId}',function(id){
+		initialBillPay("billPayPaginationDIV",'/inhome/billPay/billPayPage.do?enteredId=${enteredId}',function(id){
 			$.ajax(
 			{
-				url : '/InnMIS/billPay/billPayGet.do',
+				url : '/inhome/billPay/billPayGet.do',
 				data : JSON.stringify(id),
 				contentType : "application/json",
 				type : 'POST',
@@ -113,10 +113,10 @@ h2{
 			});
 		});
 		
-		initialBillConsume("billConsumePaginationDIV",'/InnMIS/billConsume/billConsumePage.do?enteredId=${enteredId}',function(id){
+		initialBillConsume("billConsumePaginationDIV",'/inhome/billConsume/billConsumePage.do?enteredId=${enteredId}',function(id){
 			$.ajax(
 			{
-				url : '/InnMIS/billConsume/billConsumeGet.do',
+				url : '/inhome/billConsume/billConsumeGet.do',
 				data : JSON.stringify(id),
 				contentType : "application/json",
 				type : 'POST',
@@ -314,7 +314,7 @@ h2{
 		{
 			$.ajax(
 			{
-				url : '/InnMIS/billPay/billPayAdd.do',
+				url : '/inhome/billPay/billPayAdd.do',
 				type : 'POST',
 				data : $(this).serialize(),
 				success : function(data)
@@ -332,7 +332,7 @@ h2{
 		{
 			$.ajax(
 			{
-				url : '/InnMIS/billConsume/billConsumeAdd.do',
+				url : '/inhome/billConsume/billConsumeAdd.do',
 				type : 'POST',
 				data : $(this).serialize(),
 				success : function(data)
@@ -359,7 +359,7 @@ function requestEnteredInfoDetail(id)
 {
 	$.ajax(
 	{
-		url : '/InnMIS/entered/enteredGet.do',
+		url : '/inhome/entered/enteredGet.do',
 		data : JSON.stringify(id),
 		contentType : "application/json",
 		type : 'POST',
@@ -454,7 +454,7 @@ function modifyBillPay()
 {
 	$.ajax(
 	{
-		url : '/InnMIS/billPay/billPayModify.do',
+		url : '/inhome/billPay/billPayModify.do',
 		type : 'POST',
 		data : $("#billPayForm").serialize(),
 		success : function(data)
@@ -471,7 +471,7 @@ function modifyBillConsume()
 {
 	$.ajax(
 	{
-		url : '/InnMIS/billConsume/billConsumeModify.do',
+		url : '/inhome/billConsume/billConsumeModify.do',
 		type : 'POST',
 		data : $("#billConsumeForm").serialize(),
 		success : function(data)
@@ -507,7 +507,7 @@ function modifyEnteredDescription()
 {
 	$.ajax(
 	{
-		url : '/InnMIS/entered/enteredModifyDescription.do',
+		url : '/inhome/entered/enteredModifyDescription.do',
 		type : 'POST',
 		data : $("#descriptionModifyForm").serialize(),
 		success : function(data)
@@ -533,7 +533,7 @@ function checkOutRequest()
 	{
 		$.ajax(
 		{
-			url : '/InnMIS/entered/enteredCheckOut.do',
+			url : '/inhome/entered/enteredCheckOut.do',
 			data : {id:"${enteredId}",payWay:$('#checkOutForm input:radio[name="payWay"]:checked').val(),
 					money:(-($('#checkOutForm input[name="money"]').val()))},
 			type : 'POST',
@@ -639,7 +639,7 @@ function checkOutRequest()
 			<tr><td style="display: none"><input name="id"></input> </td></tr>
 			
 			<tr><td></td>
-				<td><button onclick="deleteABill('billPayForm','/InnMIS/billPay/billPayDelete.do','billPayPaginationDIV','billPayDialog')" type="button">删除</button>
+				<td><button onclick="deleteABill('billPayForm','/inhome/billPay/billPayDelete.do','billPayPaginationDIV','billPayDialog')" type="button">删除</button>
 				<button onclick="modifyBillPay()" type="button">修改</button>
 				<button onclick="destroyDialog('billPayDialog')" type="button">关闭</button></td>
 			</tr>
@@ -658,7 +658,7 @@ function checkOutRequest()
 			<tr><td style="display: none"><input name="id"></input> </td></tr>
 			
 			<tr><td></td>
-				<td><button onclick="deleteABill('billConsumeForm','/InnMIS/billConsume/billConsumeDelete.do','billConsumePaginationDIV','billConsumeDialog')" type="button">删除</button>
+				<td><button onclick="deleteABill('billConsumeForm','/inhome/billConsume/billConsumeDelete.do','billConsumePaginationDIV','billConsumeDialog')" type="button">删除</button>
 				<button onclick="modifyBillConsume()" type="button">修改</button>
 				<button onclick="destroyDialog('billConsumeDialog')" type="button">关闭</button></td>
 			</tr>

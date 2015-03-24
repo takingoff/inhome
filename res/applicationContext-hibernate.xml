@@ -11,49 +11,51 @@
 
 
 	<!-- mysql dataSource sessionFactory 配置 -->
-<!-- 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" -->
-<!-- 		destroy-method="close"> -->
-<!-- 		<property name="driverClass" value="org.gjt.mm.mysql.Driver" /> -->
-<!-- 		<property name="jdbcUrl" value="jdbc:mysql://localhost/test" /> -->
-<!-- 		<property name="minPoolSize" value="5" /> -->
-<!-- 		<property name="maxPoolSize" value="30" /> -->
-<!-- 		<property name="maxIdleTime" value="30" /> -->
-<!-- 	</bean> -->
-<!-- 	<bean id="sessionFactory" -->
-<!-- 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> -->
-<!-- 		<property name="dataSource" ref="dataSource" /> -->
-<!-- 		<property name="packagesToScan" value="tang.li.inn.entity" /> -->
-<!-- 		<property name="hibernateProperties"> -->
-<!-- 			<value> hibernate.dialect=org.hibernate.dialect.MySQLDialect -->
-<!-- 				hibernate.show_sql=true hibernate.connection.username=sa -->
-<!-- 				hibernate.connection.password=sa -->
-<!-- 			</value> -->
-<!-- 		</property> -->
-<!-- 	</bean> -->
-
-
-	<!-- sqlite dataSource sessionFactory 配置 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
-		<property name="driverClass" value="org.sqlite.JDBC" />
-		<property name="jdbcUrl"
-			value="jdbc:sqlite:C:\Users\LiTang\Desktop\InnMIS BackUP\InnData.db" />
+		<property name="driverClass" value="org.gjt.mm.mysql.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/inhome" />
 		<property name="minPoolSize" value="5" />
 		<property name="maxPoolSize" value="30" />
 		<property name="maxIdleTime" value="30" />
 	</bean>
-
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="tang.li.inn.entity" />
 		<property name="hibernateProperties">
-			<value>
-				hibernate.dialect=tang.li.inn.infrastructure.util.SQLiteDialect
-				hibernate.show_sql=true
+			<value> 
+				hibernate.dialect=org.hibernate.dialect.MySQLDialect
+				hibernate.show_sql=true 
+				hibernate.connection.username=root
+				hibernate.connection.password=tangli
 			</value>
 		</property>
-		<property name="packagesToScan" value="tang.li.inn.entity" />
 	</bean>
+
+
+	<!-- sqlite dataSource sessionFactory 配置 -->
+<!-- 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" -->
+<!-- 		destroy-method="close"> -->
+<!-- 		<property name="driverClass" value="org.sqlite.JDBC" /> -->
+<!-- 		<property name="jdbcUrl" -->
+<!-- 			value="jdbc:sqlite:C:\Users\LiTang\Desktop\InnMIS BackUP\InnData.db" /> -->
+<!-- 		<property name="minPoolSize" value="5" /> -->
+<!-- 		<property name="maxPoolSize" value="30" /> -->
+<!-- 		<property name="maxIdleTime" value="30" /> -->
+<!-- 	</bean> -->
+
+<!-- 	<bean id="sessionFactory" -->
+<!-- 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> -->
+<!-- 		<property name="dataSource" ref="dataSource" /> -->
+<!-- 		<property name="hibernateProperties"> -->
+<!-- 			<value> -->
+<!-- 				hibernate.dialect=tang.li.inn.infrastructure.util.SQLiteDialect -->
+<!-- 				hibernate.show_sql=true -->
+<!-- 			</value> -->
+<!-- 		</property> -->
+<!-- 		<property name="packagesToScan" value="tang.li.inn.entity" /> -->
+<!-- 	</bean> -->
 
 
 	<!-- 用切面编程 设置事务处理（声明式事务） -->

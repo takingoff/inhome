@@ -4,8 +4,8 @@ function initialMiniJuiRoom(paginationDIV,roomTypeId,DBFUNC)
 	$("#" + paginationDIV).jui_datagrid(
 	{
 		dlgFiltersClass : 'miniPaginationRoomTypeFiltersClass', // 过滤器对话框的风格
-		//		ajaxFetchDataURL : '/InnMIS/room/roomMiniPage.do?roomTypeId=d0e54de8-626f-4da2-9d4a-a615a61de752', // 数据请求地址
-		ajaxFetchDataURL : '/InnMIS/room/roomMiniPage.do?roomTypeId=' + roomTypeId, // 数据请求地址
+		//		ajaxFetchDataURL : '/inhome/room/roomMiniPage.do?roomTypeId=d0e54de8-626f-4da2-9d4a-a615a61de752', // 数据请求地址
+		ajaxFetchDataURL : '/inhome/room/roomMiniPage.do?roomTypeId=' + roomTypeId, // 数据请求地址
 		row_primary_key : 'id',// 列主键 必须为不重复的整数 。。。。太尼玛坑爹了。
 		containerClass : 'miniPaginationRoomTypeDataClass ui-state-default ui-corner-all', // 整个表格的风格
 		datagridClass : 'miniPaginationRoomTypeDataClass ui-widget-content',// 数据区的风格
@@ -264,7 +264,7 @@ function initialMiniJuiRoomType(paginationDIV,DBFUNC)
 	$("#" + paginationDIV).jui_datagrid(
 	{
 		dlgFiltersClass : 'miniPaginationRoomTypeFiltersClass', // 过滤器对话框的风格
-		ajaxFetchDataURL : '/InnMIS/roomType/roomTypePage.do', // 数据请求地址
+		ajaxFetchDataURL : '/inhome/roomType/roomTypePage.do', // 数据请求地址
 		row_primary_key : 'id',// 列主键 必须为不重复的整数 。。。。太尼玛坑爹了。
 		containerClass : 'miniPaginationRoomTypeDataClass ui-state-default ui-corner-all', // 整个表格的风格
 		datagridClass : 'miniPaginationRoomTypeDataClass ui-widget-content',// 数据区的风格
@@ -499,7 +499,7 @@ function chooseRoomForSwitchRoom(paginationDIV)
 		{
 			$.ajax(
 			{
-				url : '/InnMIS/entered/enteredSwitch.do',
+				url : '/inhome/entered/enteredSwitch.do',
 				data :
 				{
 					newRoomId : newRoomId,

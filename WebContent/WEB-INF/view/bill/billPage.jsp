@@ -7,8 +7,8 @@
 <%@include file="/jsp/juiNeed.jsp" %>
 
 <link rel="stylesheet" type="text/css"
-	href="/InnMIS/css/bill/bill.css" />
-<script type="text/javascript" src="/InnMIS/js/bill/bill.js"></script>
+	href="/inhome/css/bill/bill.css" />
+<script type="text/javascript" src="/inhome/js/bill/bill.js"></script>
 
 <style type="text/css">
 </style>
@@ -47,10 +47,10 @@
 			}
 		});
 		
-		initialBillPay("billPayPaginationDIV",'/InnMIS/billPay/billPayPage.do',function(id){
+		initialBillPay("billPayPaginationDIV",'/inhome/billPay/billPayPage.do',function(id){
 			$.ajax(
 			{
-				url : '/InnMIS/billPay/billPayGet.do',
+				url : '/inhome/billPay/billPayGet.do',
 				data : JSON.stringify(id),
 				contentType : "application/json",
 				type : 'POST',
@@ -63,10 +63,10 @@
 				}
 			});
 		});
-		initialBillConsume("billConsumePaginationDIV",'/InnMIS/billConsume/billConsumePage.do',function(id){
+		initialBillConsume("billConsumePaginationDIV",'/inhome/billConsume/billConsumePage.do',function(id){
 			$.ajax(
 			{
-				url : '/InnMIS/billConsume/billConsumeGet.do',
+				url : '/inhome/billConsume/billConsumeGet.do',
 				data : JSON.stringify(id),
 				contentType : "application/json",
 				type : 'POST',
@@ -79,10 +79,10 @@
 				}
 			});
 		});
-		initialBillRoom("billRoomPaginationDIV",'/InnMIS/billRoom/billRoomPage.do',function(id){
+		initialBillRoom("billRoomPaginationDIV",'/inhome/billRoom/billRoomPage.do',function(id){
 			$.ajax(
 			{
-				url : '/InnMIS/billRoom/billRoomGet.do',
+				url : '/inhome/billRoom/billRoomGet.do',
 				data : JSON.stringify(id),
 				contentType : "application/json",
 				type : 'POST',
@@ -384,7 +384,7 @@
 	
 	function billDetailOpen()
 	{
-		window.open("/InnMIS/common/enteredBillPage.do?enteredId="+ $("#billDetailForm input[name=enteredId]").val());
+		window.open("/inhome/common/enteredBillPage.do?enteredId="+ $("#billDetailForm input[name=enteredId]").val());
 	}
 	
 	

@@ -7,12 +7,12 @@
     <meta charset="UTF-8">
     <title>控制中心</title>
     
-	<link rel="stylesheet" href="/InnMIS/jqueryUi/css/${sessionScope.theme }/jquery-ui.css">
-	<link rel="stylesheet" href="/InnMIS/css/controlCenter/controlCenter.css">
-	<script src="/InnMIS/jqueryUi/js/jquery-1.10.2.js"></script>
-	<script src="/InnMIS/jqueryUi/js/jquery-ui-1.10.4.custom.js"></script>
-	<script src="/InnMIS/js/controlCenter/menu.js"></script>
-	<script src="/InnMIS/js/controlCenter/controlCenter.js"></script>
+	<link rel="stylesheet" href="/inhome/jqueryUi/css/${sessionScope.theme }/jquery-ui.css">
+	<link rel="stylesheet" href="/inhome/css/controlCenter/controlCenter.css">
+	<script src="/inhome/jqueryUi/js/jquery-1.10.2.js"></script>
+	<script src="/inhome/jqueryUi/js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="/inhome/js/controlCenter/menu.js"></script>
+	<script src="/inhome/js/controlCenter/controlCenter.js"></script>
 	
 	<style type="text/css">
 	</style>
@@ -135,10 +135,10 @@
 	<!-- //////////////////////////////////////////////////////////////////////////////////////content -->
 	<!-- //////////////////room -->
 	<div class="${sessionScope.back_Ground}" >
-		<iframe id="iframeRoom" width="100%"  src="/InnMIS/room/roomTrendView.do" onload='iframeHeight("iframeRoom")'></iframe>
+		<iframe id="iframeRoom" width="100%"  src="/inhome/room/roomTrendView.do" onload='iframeHeight("iframeRoom")'></iframe>
 	</div>
 	<div class="${sessionScope.back_Ground}">
-		<iframe id="iframeRoomPage" width="100%"  src="/InnMIS/room/roomPageView.do" onload='iframeHeight("iframeRoomPage")'></iframe>
+		<iframe id="iframeRoomPage" width="100%"  src="/inhome/room/roomPageView.do" onload='iframeHeight("iframeRoomPage")'></iframe>
 	</div>
 	<!-- //////////////////roomType -->
 	<div class="${sessionScope.back_Ground}"  >

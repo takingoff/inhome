@@ -424,7 +424,7 @@ function initialBillPay(paginationDIV,url,DBFUNC)
 			}
 			else
 			{
-				deleteBill(JSON.stringify(ids), "/InnMIS/billPay/billPayDelete.do", paginationDIV);
+				deleteBill(JSON.stringify(ids), "/inhome/billPay/billPayDelete.do", paginationDIV);
 			}
 		},
 	});
@@ -798,7 +798,7 @@ function initialBillRoom(paginationDIV,url,DBFUNC)
 			}
 			else
 			{
-				deleteBill(JSON.stringify(ids), "/InnMIS/billRoom/billRoomDelete.do", paginationDIV);
+				deleteBill(JSON.stringify(ids), "/inhome/billRoom/billRoomDelete.do", paginationDIV);
 			}
 		},
 	});
@@ -1192,7 +1192,7 @@ function initialBillConsume(paginationDIV,url,DBFUNC)
 			}
 			else
 			{
-				deleteBill(JSON.stringify(ids), "/InnMIS/billConsume/billConsumeDelete.do", paginationDIV);
+				deleteBill(JSON.stringify(ids), "/inhome/billConsume/billConsumeDelete.do", paginationDIV);
 			}
 		},
 	});

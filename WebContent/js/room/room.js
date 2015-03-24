@@ -14,7 +14,7 @@ $(function()
 	{
 		$.ajax(
 		{
-			url : '/InnMIS/room/roomModify.do',
+			url : '/inhome/room/roomModify.do',
 			type : 'POST',
 			data : $(this).serialize(),
 			success : function(data)
@@ -32,7 +32,7 @@ $(function()
 	{
 		$.ajax(
 		{
-			url : '/InnMIS/entered/enteredAdd.do',
+			url : '/inhome/entered/enteredAdd.do',
 			type : 'POST',
 			data : $(this).serialize(),
 			success : function(data)
@@ -49,7 +49,7 @@ $(function()
 	{
 		$.ajax(
 		{
-			url : '/InnMIS/entered/enteredModify.do',
+			url : '/inhome/entered/enteredModify.do',
 			type : 'POST',
 			data : $(this).serialize(),
 			success : function(data)
@@ -66,7 +66,7 @@ $(function()
 	{
 		$.ajax(
 		{
-			url : '/InnMIS/entered/enteredContinue.do',
+			url : '/inhome/entered/enteredContinue.do',
 			type : 'POST',
 			data : $(this).serialize(),
 			success : function(data)
@@ -94,7 +94,7 @@ function deleteRoom(idJson)
 	{
 		$.ajax(
 		{
-			url : '/InnMIS/room/roomDelete.do',
+			url : '/inhome/room/roomDelete.do',
 			data : idJson,
 			contentType : "application/json",
 			type : 'POST',
@@ -108,7 +108,7 @@ function deleteRoom(idJson)
 }
 function billDetailOpen()
 {
-	window.open("/InnMIS/common/enteredBillPage.do?enteredId="+ $("#enteredFormId input[name=id]").val());
+	window.open("/inhome/common/enteredBillPage.do?enteredId="+ $("#enteredFormId input[name=id]").val());
 	destroyDialog("enteredDialogId");
 }
 function openEnterInDialog()
@@ -167,7 +167,7 @@ function requestARoom(id)
 {
 	$.ajax(
 	{
-		url : '/InnMIS/room/roomGet.do',
+		url : '/inhome/room/roomGet.do',
 		data : JSON.stringify(id),
 		contentType : "application/json",
 		type : 'POST',

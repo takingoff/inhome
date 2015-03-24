@@ -10,7 +10,7 @@
 <style type="text/css">
 	@font-face { 
     font-family: "myFont";	 
-    src: url("/InnMIS/image/SNOWREN.ttf");
+    src: url("/inhome/image/SNOWREN.ttf");
 }
 
 
@@ -79,7 +79,7 @@
 	{
 		$.ajax(
 		{
-			url : '/InnMIS/room/roomTrend.do',
+			url : '/inhome/room/roomTrend.do',
 			type : 'POST',
 			data : $(this).serialize(),
 			success : function(data)

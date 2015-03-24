@@ -31,13 +31,13 @@ function openMessageDialog(message,title)
 // 验证码请求
 function authCodeClick(id)
 {
-	$('#' + id).attr('src', '/InnMIS/common/authCode.do?' + Math.random());
+	$('#' + id).attr('src', '/inhome/common/authCode.do?' + Math.random());
 }
 // 验证码确认后执行
 function openConfirmDialog(message,title,Func)
 {
 	$(
-			"<div id=\"confirmDialog\" title='" + title + "'><p>" + message + "</p>" + "<table><tr><td><img id='authImag' style='padding-left:20px;' src='/InnMIS/common/authCode.do' " + "onclick='authCodeClick(\"authImag\")'></img></td></tr>"
+			"<div id=\"confirmDialog\" title='" + title + "'><p>" + message + "</p>" + "<table><tr><td><img id='authImag' style='padding-left:20px;' src='/inhome/common/authCode.do' " + "onclick='authCodeClick(\"authImag\")'></img></td></tr>"
 					+ "<tr><td><input id=\"authCodeInput\" name=\"authCode\"/></td></tr></div>").dialog(
 	{
 		width : 220,
@@ -49,7 +49,7 @@ function openConfirmDialog(message,title,Func)
 			{
 				$.ajax(
 				{
-					url : '/InnMIS/common/checkAuthCode.do',
+					url : '/inhome/common/checkAuthCode.do',
 					data : "authCode=" + $('#authCodeInput').val(),
 					type : 'POST', // 这个地方如果不用post
 					success : function(data)
