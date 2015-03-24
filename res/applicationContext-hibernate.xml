@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/tx   
+	http://www.springframework.org/schema/tx/spring-tx-3.1.xsd  
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd ">
+
+
+	<!-- mysql dataSource sessionFactory 配置 -->
+	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" 
+		destroy-method="close"> <property name="driverClass" value="org.gjt.mm.mysql.Driver" 
+		/> <property name="jdbcUrl" value="jdbc:mysql://localhost/test" /> <property 
+		name="minPoolSize" value="5" /> <property name="maxPoolSize" value="30" /> 
+		<property name="maxIdleTime" value="30" /> </bean> <bean id="sessionFactory" 
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> <property 
+		name="dataSource" ref="dataSource" /> <property name="packagesToScan" value="tang.li.inn.entity" 
+		/> <property name="hibernateProperties"> <value> hibernate.dialect=org.hibernate.dialect.MySQLDialect 
+		hibernate.show_sql=true hibernate.connection.username=sa hibernate.connection.password=sa 
+		</value> </property> </bean> -->
+
+
+	<!-- sqlite dataSource sessionFactory 配置 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="org.sqlite.JDBC" />
+		<property name="jdbcUrl"
+			value="jdbc:sqlite:C:\Users\LiTang\Desktop\InnMIS BackUP\InnData.db" />
+		<property name="minPoolSize" value="5" />
+		<property name="maxPoolSize" value="30" />
+		<property name="maxIdleTime" value="30" />
+		<!-- <property name="autoCommitOnClose" value="true" /> -->
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect=tang.li.inn.infrastructure.util.SQLiteDialect
+				hibernate.show_sql=true
+			</value>
+		</property>
+		<property name="packagesToScan" value="tang.li.inn.entity" />
+	</bean>
+
+
+	<!-- 用切面编程 设置事务处理（声明式事务） -->
+	<!-- class="org.springframework.orm.hibernate4.HibernateTransactionManager"> -->
+	<!-- class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="rollbackOnCommitFailure" value="true" />
+
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED" read-only="true" isolation="SERIALIZABLE" />
+			<!-- <tx:method name="*" propagation="REQUIRES_NEW" read-only="true" /> -->
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="daopct"
+			expression="execution(* tang.li.inn.infrastructure.dao..*.*(..))" />
+		<aop:advisor pointcut-ref="daopct" advice-ref="txAdvice" />
+	</aop:config>
+	
+	<aop:config>
+		<aop:pointcut id="servicepct"
+			expression="execution(* tang.li.inn.domain.service..*.*(..))" />
+		<aop:advisor pointcut-ref="servicepct" advice-ref="txAdvice" />
+	</aop:config>
+
+
+	<!-- 用切面编程 跟踪执行过程 -->
+	<bean id="aopTrace" class="tang.li.inn.mis.util.AopTrace">
+	</bean>
+	<aop:config>
+		<aop:aspect id="myaop" ref="aopTrace">
+			<!-- 只会拦截applicationContext-* 配置文件中的对应bean -->
+			<aop:pointcut id="myCut" expression="execution(* tang.li.inn..*.*(..))" />
+			<aop:before pointcut-ref="myCut" method="beforeAdvice" />
+			<aop:after pointcut-ref="myCut" method="afterAdvice" />
+			<aop:after-returning pointcut-ref="myCut"
+				returning="retVal" method="afterReturningAdvice" />
+			<aop:after-throwing pointcut-ref="myCut" throwing="ex"
+				method="AfterThrowingAdvice" />
+			<!-- <aop:around method="aroundAdvice" pointcut-ref="myCut" /> -->
+		</aop:aspect>
+	</aop:config>
+
+
+</beans>

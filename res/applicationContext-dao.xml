@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd ">
+
+
+	<bean id="staffDao" class="tang.li.inn.infrastructure.dao.staff.impl.StaffDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="staffLogDao" class="tang.li.inn.infrastructure.dao.staff.impl.StaffLogDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="billRoomDao" class="tang.li.inn.infrastructure.dao.bill.impl.BillRoomDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="billPayDao" class="tang.li.inn.infrastructure.dao.bill.impl.BillPayDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="billConsumeDao" class="tang.li.inn.infrastructure.dao.bill.impl.BillConsumeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="enteredInfoDao" class="tang.li.inn.infrastructure.dao.entered.impl.EnteredInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="orderDao" class="tang.li.inn.infrastructure.dao.order.impl.OrderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="roomDao" class="tang.li.inn.infrastructure.dao.room.impl.RoomDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="roomTypeDao" class="tang.li.inn.infrastructure.dao.room.impl.RoomTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="innEntryDao" class="tang.li.inn.infrastructure.dao.entry.impl.InnEntryDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+</beans>

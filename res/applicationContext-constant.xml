@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd ">
+
+
+	<bean class="tang.li.inn.infrastructure.util.InnConstant">
+
+		<property name="T_ROOM_STATE_CLEAN" value="1"></property>
+		<property name="T_ROOM_STATE_ENTERED" value="2"></property>
+		<property name="T_ROOM_STATE_DIRTY" value="3"></property>
+		<property name="T_ROOM_STATE_UNVALIABLE" value="4"></property>
+
+		<property name="ROOMVO_STATE_CLEAN" value="干净房"></property>
+		<property name="ROOMVO_STATE_ENTERED" value="已入住"></property>
+		<property name="ROOMVO_STATE_DIRTY" value="脏房"></property>
+		<property name="ROOMVO_STATE_UNVALIABLE" value="不可用房"></property>
+		
+		<property name="T_STAFF_NAME" value="name"></property>
+		<property name="T_ROOMTYPE_NAME" value="name"></property>
+		<property name="T_ROOM_NAME" value="name"></property>
+		<property name="T_ROOM_ROOMTYPEID" value="roomType.id"></property>
+		<property name="T_INNCONTAINER_KEY" value="key"></property>
+		
+		
+		<property name="LOGIN_STAFF_NOT_EXIST" value="登录名不存在"></property>
+		<property name="AUTHCODE_ERROR" value="验证码错误"></property>
+		<property name="LOGIN_STAFF_PSSWORD_ERROR" value="密码错误"></property>
+		<property name="LOGIN_STAFF_SUCCESS" value="登录成功"></property>
+		<property name="ACCESS_EXCEPTION" value="访问异常"></property>
+		<property name="LOGIN_TIME_OUT" value="会话超时请重新登录!"></property>
+		
+		<property name="ADD_SUCCESS" value="添加成功!"></property>
+		<property name="ADD_FAILED" value="添加失败，数据库发生异常!"></property>
+		<property name="ADD_FAILED_NAME_EXISTED" value="添加失败，指定名已经存在!"></property>
+		<property name="MODIFY_SUCCESS" value="更新成功!"></property>
+		<property name="MODIFY_FAILED" value="更新失败，数据库发生异常!"></property>
+		<property name="MODIFY_FAILED_NAME_EXISTED" value="修改失败，指定名已经存在!"></property>
+		<property name="DELETE_SUCCESS" value="删除完成!"></property>
+		<property name="DELETE_ROOM_SUCCESS" value="删除完成!已入住房间将不能删除"></property>
+		<property name="DELETE_ROOMTYPE_SUCCESS" value="删除完成!若有该类型的房间存在，房间类型将不能删除"></property>
+		<property name="DELETE_FAILED" value="删除失败，数据库发生异常!"></property>
+		
+		<property name="LIST_EXCEPTION" value="查询异常！"></property>
+		<property name="NAME_VALIDATE_GOOD" value='{"ok":"名字可用!"}'></property>
+		<property name="NAME_VALIDATE_ERROR" value='{"error":"名字重复"}'></property>
+		<property name="NAME_VALIDATE_EXCEPTION" value='{"error":"远程检查异常"}'></property>
+		
+		<property name="OPEN_AUTH_CODE" value="true"></property>
+		<property name="OPEN_ACCESS_INTERCEPTOR" value="true"></property>
+		<property name="EXCLUDE_INTERCEPTOR">
+			<list>
+				<value>common/login.do</value>
+				<value>common/authCode.do</value>
+				<value>common/checkAuthCode.do</value>
+				<value>common/logout.do</value>
+			</list>
+		</property>
+		<property name="LOGIN_PATH" value="/login.jsp"></property>
+		<property name="AUTH_CODE_FONT" value="宋体"></property>
+		<property name="FILTER_ORDER_BY" value=" order by "></property>
+	</bean>
+
+
+
+</beans>

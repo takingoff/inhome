@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd ">
+
+
+
+	<bean id="innErrorsUtil" class="tang.li.inn.infrastructure.exception.InnErrorsUtil"
+		lazy-init="false">
+		<property name="errors" ref="innErrors"></property>
+	</bean>
+
+
+	<bean id="innErrors" class="tang.li.inn.infrastructure.exception.InnErrors">
+		<property name="errorMap">
+			<map>
+				<entry key="inn.dao.common">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101000"></property>
+						<property name="info" value="通用异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.deleteEntity">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101001"></property>
+						<property name="info" value="删除实体异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.deleteId">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101002"></property>
+						<property name="info" value="删除id异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.find">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101003"></property>
+						<property name="info" value="查找异常hql执行"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.findRecent">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101004"></property>
+						<property name="info" value="按数目查找异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.findAll">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101005"></property>
+						<property name="info" value="列出所有异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.findByCriteria">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101006"></property>
+						<property name="info" value="限定查找异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.findByProperty">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101007"></property>
+						<property name="info" value="属性查找异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.findUniqueByProperty">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101008"></property>
+						<property name="info" value="属性查找唯一一个异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.get">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101009"></property>
+						<property name="info" value="获取异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.save">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101010"></property>
+						<property name="info" value="持久化异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.merge">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101011"></property>
+						<property name="info" value="合并异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.update">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101012"></property>
+						<property name="info" value="更新异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.saveOrUpdate">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101013"></property>
+						<property name="info" value="保存或更新异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.executeUpdate">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101014"></property>
+						<property name="info" value="执行更新异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.executeSQLUpdate">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101015"></property>
+						<property name="info" value="执行sql更新异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.pageFind">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101016"></property>
+						<property name="info" value="分页查找异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.pageCustomFind">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101017"></property>
+						<property name="info" value="分页定制查找异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				<entry key="inn.dao.createSession">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="50101018"></property>
+						<property name="info" value="创建session异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				
+				<!-- Service error -->
+				<entry key="inn.service.common">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="60101001"></property>
+						<property name="info" value="service通用异常"></property>
+						<property name="des" value="查看错误日志,检查数据库连接"></property>
+					</bean>
+				</entry>
+				
+				<entry key="inn.service.save">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="60101002"></property>
+						<property name="info" value="service持久化异常"></property>
+						<property name="des" value="查看错误日志"></property>
+					</bean>
+				</entry>
+				
+				<entry key="inn.service.delete">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="60101003"></property>
+						<property name="info" value="service删除异常"></property>
+						<property name="des" value="查看错误日志"></property>
+					</bean>
+				</entry>
+				
+				<entry key="inn.service.modify">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="60101004"></property>
+						<property name="info" value="service修改异常"></property>
+						<property name="des" value="查看错误日志"></property>
+					</bean>
+				</entry>
+				
+				<entry key="inn.service.get">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="60101005"></property>
+						<property name="info" value="service获取异常"></property>
+						<property name="des" value="查看错误日志"></property>
+					</bean>
+				</entry>
+				
+				<entry key="inn.service.genRoomBill.timeParse">
+					<bean class="tang.li.inn.infrastructure.exception.InnError">
+						<property name="code" value="60101006"></property>
+						<property name="info" value="房费生成数据库时间字段错误"></property>
+						<property name="des" value="查看错误日志"></property>
+					</bean>
+				</entry>
+				
+				<!-- Service error -->
+			</map>
+		</property>
+	</bean>
+
+</beans>
