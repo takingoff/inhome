@@ -4,6 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 	<display-name>Archetype Created Web Application</display-name>
+
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>index.html</welcome-file>
@@ -16,7 +17,7 @@
 		<jsp-property-group>
 			<description>让jsp都导入tag.jsp</description>
 			<url-pattern>*.jsp</url-pattern>
-			<include-prelude>/dynamic/head/tag.jsp</include-prelude>
+			<include-prelude>/dynamic/fragment/tag.jsp</include-prelude>
 		</jsp-property-group>
 		<jsp-property-group>
 			<description>让jsp没有设置编码的都设置成utf-8</description>
@@ -26,18 +27,6 @@
 		</jsp-property-group>
 	</jsp-config>
 
-
-	<!-- spring ben注入配置 -->
-
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-			classpath*:/applicationContext-*.xml  
-		</param-value>
-	</context-param>
 
 
 	<!-- spring mvc 配置 -->
@@ -56,6 +45,26 @@
 		<url-pattern>*.do</url-pattern>  <!-- .do结尾的请求都将会被spring mvc调度 -->
 	</servlet-mapping>
 
+	<!-- spring ben注入配置 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:/applicationContext-*.xml  
+		</param-value>
+	</context-param>
+	
+	<!-- sitemesh -->
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 <!-- 	<filter> -->
 <!-- 		<filter-name>openSessionInViewFilter</filter-name> -->
@@ -65,5 +74,9 @@
 <!-- 		<filter-name>openSessionInViewFilter</filter-name> -->
 <!-- 		<url-pattern>*.do</url-pattern> -->
 <!-- 	</filter-mapping> -->
+
+
+
+
 </web-app>
 

@@ -10,5 +10,3 @@
 <c:set var="dynamicRes" value="${pageContext.request.contextPath}/dynamic"/>
 <c:set var="basePath" value="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}"/>
     
-
-    

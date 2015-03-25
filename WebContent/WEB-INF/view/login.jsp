@@ -13,24 +13,7 @@
 <script>
 	function submitForm()
 	{
-	
-	
 		if ($('#ff').form('validate') == false) { return; }
-		/* 		$('#ff').form('submit',
-		 {
-		 success : function(data)
-		 {
-		 if(data==null||data=='')
-		 {
-		 window.location.href = 'staff/controlCenter.do';
-		 }
-		 else
-		 {
-		 $.messager.alert('登录失败', data);
-		 authCodeClick();
-		 }
-		 }
-		 }); */
 		$.ajax(
 		{
 			url : 'common/login.do',
@@ -104,140 +87,86 @@ body{
 <body>
 <center>
 	<h2>${ctx }</h2>
-	<h2>${staticRes }</h2>
-	<h2>${dynamicRes}</h2>
 	<h2>${basePath }</h2>
-	<div class="container">
+	<h1>管理员登录</h1>
+	
+<!-- 	<div  title="管理员登录" style="width:400px"> -->
+<!-- 		<div id="loginPanelId" > -->
+<!-- 			<form id="ff" method="post" action="common/login.do"> -->
+<!-- 				<table cellpadding="5"></table> -->
+<!-- 				<table cellpadding="5"> -->
+<!-- 					<tr> -->
+<!-- 						<td>用户名:</td> -->
+<!-- 						<td><input  autocomplete="off" class="easyui-validatebox textbox" name="name" data-options="required:true" ></td> -->
+<!-- 					</tr> -->
+<!-- 					<tr> -->
+<!-- 						<td>密码:</td> -->
+<!-- 						<td><input  autocomplete="off" class="easyui-validatebox" type="password" name="password"  data-options="required:true"  ></td> -->
+<!-- 					</tr> -->
+<!-- 					<tr> -->
+<!-- 						<td></td> -->
+<!-- 						<td ><img id="authImag" style="padding-left:20px;" src="common/authCode.do" onclick="authCodeClick()"></img></td> -->
+<!-- 					</tr> -->
+<!-- 					<tr> -->
+<!-- 						<td>验证码:</td> -->
+<!-- 						<td><input class="textbox" name="authCode"></td> -->
+<!-- 					</tr> -->
+<!-- 					<tr> -->
+<!-- 						<td></td> -->
+<!-- 						<td ><a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style=" position: relative; float: left">确定</a>  -->
+<!-- 						<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()"style=" position: relative; float: right;">清除</a></td> -->
+<!-- 					</tr> -->
+<!-- 				</table> -->
+<!-- 			</form> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+	
+	<div class="container" style="width:45%;">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>
-							编号
-						</th>
-						<th>
-							产品
-						</th>
-						<th>
-							交付时间
-						</th>
-						<th>
-							状态
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							1
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							01/04/2012
-						</td>
-						<td>
-							Default
-						</td>
-					</tr>
-					<tr class="success">
-						<td>
-							1
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							01/04/2012
-						</td>
-						<td>
-							Approved
-						</td>
-					</tr>
-					<tr class="error">
-						<td>
-							2
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							02/04/2012
-						</td>
-						<td>
-							Declined
-						</td>
-					</tr>
-					<tr class="warning">
-						<td>
-							3
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							03/04/2012
-						</td>
-						<td>
-							Pending
-						</td>
-					</tr>
-					<tr class="info">
-						<td>
-							4
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							04/04/2012
-						</td>
-						<td>
-							Call in to confirm
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<form class="form-horizontal" role="form" id="ff" method="post" action="common/login.do">
+				<div class="form-group">
+					 <label for="name" class="col-sm-2 control-label">用户名</label>
+					<div class="col-sm-10">
+						<input type="text" name="name" class="form-control" id="name" />
+					</div>
+				</div>
+				<div class="form-group">
+					 <label for="password" class="col-sm-2 control-label">密码</label>
+					<div class="col-sm-10">
+						<input type="password" name="password" class="form-control" id="password" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-10">
+						<img id="authImag" style="padding-left:20px;" src="common/authCode.do" onclick="authCodeClick()"></img>
+					</div>
+				</div>
+				<div class="form-group">
+					 <label for="auth" class="col-sm-2 control-label">验证码</label>
+					<div class="col-sm-10">
+						<input type="text" name="authCode" class="form-control" id="auth" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<div class="checkbox">
+							 <label><input type="checkbox" />记住我</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						 <button type="submit" class="btn btn-default">登录</button>
+						 <button onclick="clearForm()" class="btn btn-default">清空</button>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
-	<h1>管理员登录</h1>
-	<div  title="管理员登录" style="width:400px">
-		<div id="loginPanelId" >
-			<form id="ff" method="post" action="common/login.do">
-				<table cellpadding="5"></table>
-				<blockquote>
-					<br>
-				</blockquote>
-				<table cellpadding="5">
-					<tr>
-						<td>用户名:</td>
-						<td><input  autocomplete="off" class="easyui-validatebox textbox" name="name" data-options="required:true" ></td>
-					</tr>
-					<tr>
-						<td>密码:</td>
-						<td><input  autocomplete="off" class="easyui-validatebox" type="password" name="password"  data-options="required:true"  ></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td ><img id="authImag" style="padding-left:20px;" src="common/authCode.do" onclick="authCodeClick()"></img></td>
-					</tr>
-					<tr>
-						<td>验证码:</td>
-						<td><input class="textbox" name="authCode"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td ><a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style=" position: relative; float: left">确定</a> 
-						<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()"style=" position: relative; float: right;">清除</a></td>
-					</tr>
-				</table>
-			</form>
-			</div>
-		</div>
-	</div>
+		
+		
 </center>
 
 	<div id="dialog"></div>
