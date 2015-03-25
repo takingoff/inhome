@@ -134,9 +134,9 @@
 	<div class="${sessionScope.back_Ground}" >
 		<iframe id="iframeRoom" width="100%"  src="${ctx}/room/roomTrendView.do" onload='iframeHeight("iframeRoom")'></iframe>
 	</div>
-	<div class="${sessionScope.back_Ground}">
-		<iframe id="iframeRoomPage" width="100%"  src="${ctx}/room/roomPageView.do" onload='iframeHeight("iframeRoomPage")'></iframe>
-	</div>
+<%-- 	<div class="${sessionScope.back_Ground}"> --%>
+<%-- 		<iframe id="iframeRoomPage" width="100%"  src="${ctx}/room/roomPageView.do" onload='iframeHeight("iframeRoomPage")'></iframe> --%>
+<!-- 	</div> -->
 	<!-- //////////////////roomType -->
 	<div class="${sessionScope.back_Ground}"  >
 		<iframe id="iframeRoomType" width="100%"   onload='iframeHeight("iframeRoomType")'></iframe>
