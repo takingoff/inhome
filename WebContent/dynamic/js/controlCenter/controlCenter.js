@@ -62,7 +62,7 @@ function staffLogout()
 function refreshRoomTrend()
 {
 //	document.getElementById('iframeRoom').contentWindow.refresh();
-	frames["iframeRoom"].refresh();
+	frames["iframeRoom"].refresh();//refresh方法定义在roomTrend中
 }
 
 var showRoomTrend = true;
@@ -86,7 +86,7 @@ function changeRoomView()
 	else
 	{
 		displayAiframe("iframeRoom");
-		frames["iframeRoom"].refresh();
+		frames["iframeRoom"].refresh();	//refresh方法定义在roomTrend中
 		showRoomTrend = true;
 	}
 }

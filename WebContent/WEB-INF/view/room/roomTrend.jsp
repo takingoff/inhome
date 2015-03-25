@@ -92,7 +92,6 @@
 				$("#trendContainerId div").remove();
 				for(var index in data)
 				{
-					
 					if(data[index].eVo != null)
 					{
 						//服务端在设置的时候将 enteredInfo的Room字段设置成了null，目的是减少传输量，因此这个地方不能够使用eVo.enteredInfo.room,而直接使用rVo.room
