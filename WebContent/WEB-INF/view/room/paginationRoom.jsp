@@ -1,5 +1,5 @@
 	
-<%@include file="/jsp/room.jsp"  %>	
+<%@include file="../jsp/room.jsp"  %>	
 
 <!DOCTYPE html>
 <html>

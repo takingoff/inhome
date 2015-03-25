@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<%@include file="/jsp/juiNeed.jsp" %>
+<%@include file="../jsp/juiNeed.jsp" %>
 
 <link rel="stylesheet" type="text/css"
 	href="/inhome/dynamic/css/bill/bill.css" />

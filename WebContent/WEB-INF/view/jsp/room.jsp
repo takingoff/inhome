@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<%@include file="/jsp/juiNeed.jsp" %>
+<%@include file="../jsp/juiNeed.jsp" %>
 
 <script type="text/javascript" src="/inhome/dynamic/js/room/room.js"></script>
 <script type="text/javascript" src="/inhome/dynamic/js/common/jui.js"></script>

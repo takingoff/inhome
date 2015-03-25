@@ -70,7 +70,7 @@
 
 @font-face { 
     font-family: "myFont";	 
-    src: url("/inhome/image/SNOWREN.ttf");
+    src: url("/inhome/dynamic/image/SNOWREN.ttf");
 }
 *{
 	font-size:12px;
@@ -79,7 +79,7 @@ body {
     padding:130px;
     font-size:12px;
     margin:0;
-    background-image: url("/inhome/image/login.png");
+    background-image: url("/inhome/dynamic/image/login.png");
     background-size:100% 100%;
 }
 h1

@@ -5,7 +5,7 @@
 <html>
 <head>
 
-<%@include file="/jsp/juiNeed.jsp" %>
+<%@include file="./WEB-INF/jsp/juiNeed.jsp" %>
 
 <script type="text/javascript" src="/inhome/dynamic/js/common/jui.js"></script>
 <link rel="stylesheet" type="text/css"

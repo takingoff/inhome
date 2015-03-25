@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-encoding//WebContent/jsp/room.jsp=UTF-8
+encoding//WebContent/WEB-INF/view/jsp/room.jsp=UTF-8
 encoding//src/tang/li/inn=UTF-8
 encoding//src/tang/li/inn/infrastructure/jui/JuiElementFilter.java=UTF-8

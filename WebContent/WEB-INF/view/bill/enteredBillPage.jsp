@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@include file="/jsp/juiNeed.jsp" %>
+<%@include file="../jsp/juiNeed.jsp" %>
 
 <title>入住信息详情</title>
 
