@@ -1,6 +1,4 @@
-	
 <%@include file="../jsp/room.jsp"  %>	
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -141,7 +139,7 @@
 		{
 		
 			dlgFiltersClass : 'grid1_filters',  //过滤器对话框的风格
-			ajaxFetchDataURL : '/inhome/room/roomPage.do', //数据请求地址
+			ajaxFetchDataURL : '${ctx}/room/roomPage.do', //数据请求地址
 			row_primary_key: 'id',//列主键 必须为不重复的整数 。。。。太尼玛坑爹了。
 			containerClass : 'grid1_container ui-state-default ui-corner-all', //整个表格的风格
 			datagridClass : 'grid1_data ui-widget-content',//数据区的风格
@@ -423,7 +421,7 @@
 		{
 			$.ajax(
 			{
-				url : '/inhome/room/roomAdd.do',
+				url : '${ctx}/room/roomAdd.do',
 				type : 'POST',
 				data : $(this).serialize(),
 				success : function(data)
@@ -462,7 +460,7 @@
 		<input type="text" maxlength="20"  id="addRoomRoomTypeIdInputId" name="roomType.id" style="display: none;" readonly="readonly"/>
 		<table>
 			<tr><td>房间名称：</td><td><input type="text" maxlength="20"  name="name" 
-				data-rule="房间名称:required;name;remote[/inhome/room/roomAddValidateName.do]"  /></td></tr>
+				data-rule="房间名称:required;name;remote[${ctx}/room/roomAddValidateName.do]"  /></td></tr>
 			<tr><td>房间类型：</td><td><input type="text" maxlength="20"  name="roomTypeName" id="addRoomRoomTypeNameInputId" readonly="readonly" 
 				data-rule="房间类型:required;roomTypeName" /></td>
 				<td><button type="button" onclick="chooseRoomTypeForAdd('miniRoomTypePageId','addRoomRoomTypeIdInputId','addRoomRoomTypeNameInputId')">..</button></td></tr>

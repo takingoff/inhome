@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8"
-	import="java.util.*" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -136,7 +133,7 @@ body{
 		{
 		
 			dlgFiltersClass : 'grid1_filters',  //过滤器对话框的风格
-			ajaxFetchDataURL : '/inhome/roomType/roomTypePage.do', //数据请求地址
+			ajaxFetchDataURL : '${ctx}/roomType/roomTypePage.do', //数据请求地址
 			row_primary_key: 'id',//列主键 必须为不重复的整数 。。。。太尼玛坑爹了。
 			containerClass : 'grid1_container ui-state-default ui-corner-all', //整个表格的风格
 			datagridClass : 'grid1_data ui-widget-content',//数据区的风格
@@ -339,7 +336,7 @@ body{
 			{
 				$.ajax(
 					{
-						url : '/inhome/roomType/roomTypeGet.do',
+						url : '${ctx}/roomType/roomTypeGet.do',
 						data : JSON.stringify(data.row_id),
 						contentType : "application/json",
 						type : 'POST', 
@@ -385,7 +382,7 @@ body{
 		{
 			$.ajax(
 			{
-				url : '/inhome/roomType/roomTypeAdd.do',
+				url : '${ctx}/roomType/roomTypeAdd.do',
 				type : 'POST',
 				data : $(this).serialize(),
 				success : function(data)
@@ -402,7 +399,7 @@ body{
 		{
 			$.ajax(
 			{
-				url : '/inhome/roomType/roomTypeModify.do',
+				url : '${ctx}/roomType/roomTypeModify.do',
 				type : 'POST',
 				data : $(this).serialize(),
 				success : function(data)
@@ -420,13 +417,13 @@ body{
 ////////////////////////////////////function
 	function deleteARoomType()
 	{
-		deleteAEntity("entityForm","id","entityDialog","paginationDIV","/inhome/roomType/roomTypeDelete.do");
+		deleteAEntity("entityForm","id","entityDialog","paginationDIV","${ctx}/roomType/roomTypeDelete.do");
 	
 	}
 	
 	function deleteRoomType(idJson)
 	{
-		deleteEntity("paginationDIV","/inhome/roomType/roomTypeDelete.do",idJson);
+		deleteEntity("paginationDIV","${ctx}/roomType/roomTypeDelete.do",idJson);
 	}
 
 	
@@ -443,7 +440,7 @@ body{
 		<form id="addForm" >
 		<table>
 			<tr><td>类型名称：</td><td><input type="text" maxlength="20"  name="name" 
-				data-rule="类型名:required;name;remote[/inhome/roomType/roomTypeAddValidateName.do]" placeholder="类型名" /></td></tr>
+				data-rule="类型名:required;name;remote[${ctx}/roomType/roomTypeAddValidateName.do]" placeholder="类型名" /></td></tr>
 			<tr><td>全天价格：</td><td><input type="text" maxlength="10" name="dayPrice" 
 				data-rule="全天价格:required;dayPrice;integerAndDecimal" 
 	        	data-rule-integerAndDecimal="[/^([1-9]{1}[0-9]*([.]{1}[0-9]+){0,1}|(0(.[0-9]+){0,1}))$/, '输入小数或整数']" /></td></tr>
@@ -462,7 +459,7 @@ body{
 			<tr><td><input type="text" name="id" style="display: none;"/></td></tr>
 			<tr><td>添加时间：</td><td><input type="text"  readonly="readonly" name="genTime" /></td></tr>
 			<tr><td>类型名称：</td><td><input type="text" maxlength="20"  name="name" 
-				data-rule="类型名:required;name;remote[/inhome/roomType/roomTypeModifyValidateName.do, id]"  /></td></tr>  <!-- 逗号后面一定要有一个空格 -->
+				data-rule="类型名:required;name;remote[${ctx}/roomType/roomTypeModifyValidateName.do, id]"  /></td></tr>  <!-- 逗号后面一定要有一个空格 -->
 			<tr><td>全天价格：</td><td><input type="text" maxlength="10" name="dayPrice" 
 				data-rule="全天价格:required;dayPrice;integerAndDecimal" 
 	        	data-rule-integerAndDecimal="[/^([1-9]{1}[0-9]*([.]{1}[0-9]+){0,1}|(0(.[0-9]+){0,1}))$/, '输入小数或整数']" /></td></tr>

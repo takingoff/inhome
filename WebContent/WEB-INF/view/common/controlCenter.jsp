@@ -1,18 +1,15 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>控制中心</title>
     
-	<link rel="stylesheet" href="/inhome/static/jqueryUi/css/${sessionScope.theme }/jquery-ui.css">
-	<link rel="stylesheet" href="/inhome/dynamic/css/controlCenter/controlCenter.css">
-	<script src="/inhome/static/jqueryUi/js/jquery-1.10.2.js"></script>
-	<script src="/inhome/static/jqueryUi/js/jquery-ui-1.10.4.custom.js"></script>
-	<script src="/inhome/dynamic/js/controlCenter/menu.js"></script>
-	<script src="/inhome/dynamic/js/controlCenter/controlCenter.js"></script>
+	<link rel="stylesheet" href="${staticRes}/jqueryUi/css/${sessionScope.theme }/jquery-ui.css">
+	<link rel="stylesheet" href="${dynamicRes}/css/controlCenter/controlCenter.css">
+	<script src="${staticRes}/jqueryUi/js/jquery-1.10.2.js"></script>
+	<script src="${staticRes}/jqueryUi/js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="${dynamicRes}/js/controlCenter/menu.js"></script>
+	<script src="${dynamicRes}/js/controlCenter/controlCenter.js"></script>
 	
 	<style type="text/css">
 	</style>
@@ -135,10 +132,10 @@
 	<!-- //////////////////////////////////////////////////////////////////////////////////////content -->
 	<!-- //////////////////room -->
 	<div class="${sessionScope.back_Ground}" >
-		<iframe id="iframeRoom" width="100%"  src="/inhome/room/roomTrendView.do" onload='iframeHeight("iframeRoom")'></iframe>
+		<iframe id="iframeRoom" width="100%"  src="${ctx}/room/roomTrendView.do" onload='iframeHeight("iframeRoom")'></iframe>
 	</div>
 	<div class="${sessionScope.back_Ground}">
-		<iframe id="iframeRoomPage" width="100%"  src="/inhome/room/roomPageView.do" onload='iframeHeight("iframeRoomPage")'></iframe>
+		<iframe id="iframeRoomPage" width="100%"  src="${ctx}/room/roomPageView.do" onload='iframeHeight("iframeRoomPage")'></iframe>
 	</div>
 	<!-- //////////////////roomType -->
 	<div class="${sessionScope.back_Ground}"  >

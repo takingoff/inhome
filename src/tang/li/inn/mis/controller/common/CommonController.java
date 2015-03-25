@@ -159,6 +159,13 @@ public class CommonController
 	}
 	
 	
+	@RequestMapping("/enterLogin")
+	public String enterLogin()
+	{
+		//跳转到控制中心。
+		return "login";
+	}
+	
 	@RequestMapping("/controlCenter")
 	public String enterControlCenter()
 	{

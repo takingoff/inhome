@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8"
-	import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +5,8 @@
 <%@include file="../jsp/juiNeed.jsp" %>
 
 <link rel="stylesheet" type="text/css"
-	href="/inhome/dynamic/css/bill/bill.css" />
-<script type="text/javascript" src="/inhome/dynamic/js/bill/bill.js"></script>
+	href="${dynamicRes}/css/bill/bill.css" />
+<script type="text/javascript" src="${dynamicRes}/js/bill/bill.js"></script>
 
 <style type="text/css">
 </style>
@@ -47,10 +45,10 @@
 			}
 		});
 		
-		initialBillPay("billPayPaginationDIV",'/inhome/billPay/billPayPage.do',function(id){
+		initialBillPay("billPayPaginationDIV",'${ctx}/billPay/billPayPage.do',function(id){
 			$.ajax(
 			{
-				url : '/inhome/billPay/billPayGet.do',
+				url : '${ctx}/billPay/billPayGet.do',
 				data : JSON.stringify(id),
 				contentType : "application/json",
 				type : 'POST',
@@ -63,10 +61,10 @@
 				}
 			});
 		});
-		initialBillConsume("billConsumePaginationDIV",'/inhome/billConsume/billConsumePage.do',function(id){
+		initialBillConsume("billConsumePaginationDIV",'${ctx}/billConsume/billConsumePage.do',function(id){
 			$.ajax(
 			{
-				url : '/inhome/billConsume/billConsumeGet.do',
+				url : '${ctx}/billConsume/billConsumeGet.do',
 				data : JSON.stringify(id),
 				contentType : "application/json",
 				type : 'POST',
@@ -79,10 +77,10 @@
 				}
 			});
 		});
-		initialBillRoom("billRoomPaginationDIV",'/inhome/billRoom/billRoomPage.do',function(id){
+		initialBillRoom("billRoomPaginationDIV",'${ctx}/billRoom/billRoomPage.do',function(id){
 			$.ajax(
 			{
-				url : '/inhome/billRoom/billRoomGet.do',
+				url : '${ctx}/billRoom/billRoomGet.do',
 				data : JSON.stringify(id),
 				contentType : "application/json",
 				type : 'POST',
@@ -384,7 +382,7 @@
 	
 	function billDetailOpen()
 	{
-		window.open("/inhome/common/enteredBillPage.do?enteredId="+ $("#billDetailForm input[name=enteredId]").val());
+		window.open("${ctx}/common/enteredBillPage.do?enteredId="+ $("#billDetailForm input[name=enteredId]").val());
 	}
 	
 	

@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8"
-	import="java.util.*" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,8 +37,8 @@ h2{
 </style>
 
 <link rel="stylesheet" type="text/css"
-	href="/inhome/dynamic/css/bill/bill.css" />
-<script type="text/javascript" src="/inhome/dynamic/js/bill/bill.js"></script>
+	href="${dynamicRes}/css/bill/bill.css" />
+<script type="text/javascript" src="${dynamicRes}/js/bill/bill.js"></script>
 
 
 
@@ -79,12 +76,12 @@ h2{
 			}
 		});
 		
-		initialBillRoom("billRoomPaginationDIV",'/inhome/billRoom/billRoomPage.do?enteredId=${enteredId}',function(id){});
+		initialBillRoom("billRoomPaginationDIV",'${ctx}/billRoom/billRoomPage.do?enteredId=${enteredId}',function(id){});
 		
-		initialBillPay("billPayPaginationDIV",'/inhome/billPay/billPayPage.do?enteredId=${enteredId}',function(id){
+		initialBillPay("billPayPaginationDIV",'${ctx}/billPay/billPayPage.do?enteredId=${enteredId}',function(id){
 			$.ajax(
 			{
-				url : '/inhome/billPay/billPayGet.do',
+				url : '${ctx}/billPay/billPayGet.do',
 				data : JSON.stringify(id),
 				contentType : "application/json",
 				type : 'POST',
@@ -113,10 +110,10 @@ h2{
 			});
 		});
 		
-		initialBillConsume("billConsumePaginationDIV",'/inhome/billConsume/billConsumePage.do?enteredId=${enteredId}',function(id){
+		initialBillConsume("billConsumePaginationDIV",'${ctx}/billConsume/billConsumePage.do?enteredId=${enteredId}',function(id){
 			$.ajax(
 			{
-				url : '/inhome/billConsume/billConsumeGet.do',
+				url : '${ctx}/billConsume/billConsumeGet.do',
 				data : JSON.stringify(id),
 				contentType : "application/json",
 				type : 'POST',
@@ -314,7 +311,7 @@ h2{
 		{
 			$.ajax(
 			{
-				url : '/inhome/billPay/billPayAdd.do',
+				url : '${ctx}/billPay/billPayAdd.do',
 				type : 'POST',
 				data : $(this).serialize(),
 				success : function(data)
@@ -332,7 +329,7 @@ h2{
 		{
 			$.ajax(
 			{
-				url : '/inhome/billConsume/billConsumeAdd.do',
+				url : '${ctx}/billConsume/billConsumeAdd.do',
 				type : 'POST',
 				data : $(this).serialize(),
 				success : function(data)
@@ -359,7 +356,7 @@ function requestEnteredInfoDetail(id)
 {
 	$.ajax(
 	{
-		url : '/inhome/entered/enteredGet.do',
+		url : '${ctx}/entered/enteredGet.do',
 		data : JSON.stringify(id),
 		contentType : "application/json",
 		type : 'POST',
@@ -454,7 +451,7 @@ function modifyBillPay()
 {
 	$.ajax(
 	{
-		url : '/inhome/billPay/billPayModify.do',
+		url : '${ctx}/billPay/billPayModify.do',
 		type : 'POST',
 		data : $("#billPayForm").serialize(),
 		success : function(data)
@@ -471,7 +468,7 @@ function modifyBillConsume()
 {
 	$.ajax(
 	{
-		url : '/inhome/billConsume/billConsumeModify.do',
+		url : '${ctx}/billConsume/billConsumeModify.do',
 		type : 'POST',
 		data : $("#billConsumeForm").serialize(),
 		success : function(data)
@@ -507,7 +504,7 @@ function modifyEnteredDescription()
 {
 	$.ajax(
 	{
-		url : '/inhome/entered/enteredModifyDescription.do',
+		url : '${ctx}/entered/enteredModifyDescription.do',
 		type : 'POST',
 		data : $("#descriptionModifyForm").serialize(),
 		success : function(data)
@@ -533,7 +530,7 @@ function checkOutRequest()
 	{
 		$.ajax(
 		{
-			url : '/inhome/entered/enteredCheckOut.do',
+			url : '${ctx}/entered/enteredCheckOut.do',
 			data : {id:"${enteredId}",payWay:$('#checkOutForm input:radio[name="payWay"]:checked').val(),
 					money:(-($('#checkOutForm input[name="money"]').val()))},
 			type : 'POST',
@@ -639,7 +636,7 @@ function checkOutRequest()
 			<tr><td style="display: none"><input name="id"></input> </td></tr>
 			
 			<tr><td></td>
-				<td><button onclick="deleteABill('billPayForm','/inhome/billPay/billPayDelete.do','billPayPaginationDIV','billPayDialog')" type="button">删除</button>
+				<td><button onclick="deleteABill('billPayForm','${ctx}/billPay/billPayDelete.do','billPayPaginationDIV','billPayDialog')" type="button">删除</button>
 				<button onclick="modifyBillPay()" type="button">修改</button>
 				<button onclick="destroyDialog('billPayDialog')" type="button">关闭</button></td>
 			</tr>
@@ -658,7 +655,7 @@ function checkOutRequest()
 			<tr><td style="display: none"><input name="id"></input> </td></tr>
 			
 			<tr><td></td>
-				<td><button onclick="deleteABill('billConsumeForm','/inhome/billConsume/billConsumeDelete.do','billConsumePaginationDIV','billConsumeDialog')" type="button">删除</button>
+				<td><button onclick="deleteABill('billConsumeForm','${ctx}/billConsume/billConsumeDelete.do','billConsumePaginationDIV','billConsumeDialog')" type="button">删除</button>
 				<button onclick="modifyBillConsume()" type="button">修改</button>
 				<button onclick="destroyDialog('billConsumeDialog')" type="button">关闭</button></td>
 			</tr>

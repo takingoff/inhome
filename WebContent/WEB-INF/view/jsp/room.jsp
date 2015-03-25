@@ -4,12 +4,12 @@
 
 <%@include file="../jsp/juiNeed.jsp" %>
 
-<script type="text/javascript" src="/inhome/dynamic/js/room/room.js"></script>
-<script type="text/javascript" src="/inhome/dynamic/js/common/jui.js"></script>
+<script type="text/javascript" src="${dynamicRes}/js/room/room.js"></script>
+<script type="text/javascript" src="${dynamicRes}/js/common/jui.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="/inhome/dynamic/css/roomType/miniPaginationRoomType.css" />
+	href="${dynamicRes}/css/roomType/miniPaginationRoomType.css" />
 <link rel="stylesheet" type="text/css"
-	href="/inhome/dynamic/css/room/miniPaginationRoom.css" />
+	href="${dynamicRes}/css/room/miniPaginationRoom.css" />
 
 
 <style type="text/css">
@@ -50,7 +50,7 @@ body{
 		<table>
 			<tr><td>添加时间：</td><td><input type="text"  readonly="readonly" name="genTime" /></td></tr>
 			<tr><td>房间名称：</td><td><input type="text" maxlength="20"  name="name" 
-				data-rule="类型名:required;name;remote[/inhome/room/roomModifyValidateName.do, id]"  /></td></tr> <!-- 逗号后面一定要有一个空格 -->
+				data-rule="类型名:required;name;remote[${ctx}/room/roomModifyValidateName.do, id]"  /></td></tr> <!-- 逗号后面一定要有一个空格 -->
 			<tr><td>房间类型：</td><td><input type="text" maxlength="20"  name="roomTypeName" id="modifyRoomRoomTypeNameInputId" readonly="readonly" 
 				data-rule="房间类型:required;roomTypeName" />
 				</td><td><button type="button" onclick="chooseRoomTypeForAdd('miniRoomTypePageId','modifyRoomRoomTypeIdInputId','modifyRoomRoomTypeNameInputId')">..</button></td></tr>

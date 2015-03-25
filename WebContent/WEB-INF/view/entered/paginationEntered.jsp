@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8"
-	import="java.util.*" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -177,7 +174,7 @@ body{
 		{
 		
 			dlgFiltersClass : 'grid1_filters',  //过滤器对话框的风格
-			ajaxFetchDataURL : '/inhome/entered/enteredPage.do', //数据请求地址
+			ajaxFetchDataURL : '${ctx}/entered/enteredPage.do', //数据请求地址
 			row_primary_key: 'id',//列主键 必须为不重复的整数 。。。。太尼玛坑爹了。
 			containerClass : 'grid1_container ui-state-default ui-corner-all', //整个表格的风格
 			datagridClass : 'grid1_data ui-widget-content',//数据区的风格
@@ -590,7 +587,7 @@ body{
 			{
 				$.ajax(
 					{
-						url : '/inhome/entered/enteredGet.do',
+						url : '${ctx}/entered/enteredGet.do',
 						data : JSON.stringify(data.row_id),
 						contentType : "application/json",
 						type : 'POST', 
@@ -636,19 +633,19 @@ body{
 
 function deleteAEnteredInfo()
 {
-	deleteAEntity("requestEnteredBillForm","enteredInfoId","entityDialog","paginationDIV","/inhome/entered/enteredDelete.do");
+	deleteAEntity("requestEnteredBillForm","enteredInfoId","entityDialog","paginationDIV","${ctx}/entered/enteredDelete.do");
 
 }
 
 function deleteEnteredInfo(idJson)
 {
-	deleteEntity("paginationDIV","/inhome/entered/enteredDelete.do",idJson);
+	deleteEntity("paginationDIV","${ctx}/entered/enteredDelete.do",idJson);
 }
 
 	
 function billDetailOpen()
 {
-	window.open("/inhome/common/enteredBillPage.do?enteredId="+ $("#requestEnteredBillForm input[name=enteredInfoId]").val());
+	window.open("${ctx}/common/enteredBillPage.do?enteredId="+ $("#requestEnteredBillForm input[name=enteredInfoId]").val());
 }
 </script>
 
