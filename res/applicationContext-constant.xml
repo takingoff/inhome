@@ -22,7 +22,7 @@
 		<property name="T_ROOMTYPE_NAME" value="name"></property>
 		<property name="T_ROOM_NAME" value="name"></property>
 		<property name="T_ROOM_ROOMTYPEID" value="roomType.id"></property>
-		<property name="T_INNCONTAINER_KEY" value="key"></property>
+		<property name="T_INNCONTAINER_KEY" value="innKey"></property>
 		
 		
 		<property name="LOGIN_STAFF_NOT_EXIST" value="登录名不存在"></property>
@@ -48,7 +48,7 @@
 		<property name="NAME_VALIDATE_ERROR" value='{"error":"名字重复"}'></property>
 		<property name="NAME_VALIDATE_EXCEPTION" value='{"error":"远程检查异常"}'></property>
 		
-		<property name="OPEN_AUTH_CODE" value="true"></property>
+		<property name="OPEN_AUTH_CODE" value="false"></property>
 		<property name="OPEN_ACCESS_INTERCEPTOR" value="true"></property>
 		<property name="EXCLUDE_INTERCEPTOR">
 			<list>

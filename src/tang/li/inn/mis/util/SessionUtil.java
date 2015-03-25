@@ -70,7 +70,7 @@ public class SessionUtil
 	{
 		for(InnEntry entry:list)
 		{
-			session.setAttribute(entry.getKey(),entry.getValue());
+			session.setAttribute(entry.getInnKey(),entry.getValue());
 		}
 	}
 

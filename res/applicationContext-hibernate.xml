@@ -24,12 +24,20 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan" value="tang.li.inn.entity" />
 		<property name="hibernateProperties">
-			<value> 
-				hibernate.dialect=org.hibernate.dialect.MySQLDialect
-				hibernate.show_sql=true 
-				hibernate.connection.username=root
-				hibernate.connection.password=tangli
-			</value>
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.connection.username">root</prop>
+				<prop key="hibernate.connection.password">tangli</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">false</prop>
+			</props>
+<!-- 			<value>  -->
+<!-- 				hibernate.dialect=org.hibernate.dialect.MySQLDialect -->
+<!-- 				hibernate.connection.username=root -->
+<!-- 				hibernate.connection.password=tangli -->
+<!-- 				hibernate.show_sql=true  -->
+<!-- 				hibernate.format_sql=false -->
+<!-- 			</value> -->
 		</property>
 	</bean>
 
@@ -70,8 +78,7 @@
 
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="*" propagation="REQUIRED" read-only="true" isolation="SERIALIZABLE" />
-			<!-- <tx:method name="*" propagation="REQUIRES_NEW" read-only="true" /> -->
+			<tx:method name="*" propagation="REQUIRED" read-only="false" isolation="SERIALIZABLE" />
 		</tx:attributes>
 	</tx:advice>
 
