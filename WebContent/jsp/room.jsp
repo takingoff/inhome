@@ -4,12 +4,12 @@
 
 <%@include file="/jsp/juiNeed.jsp" %>
 
-<script type="text/javascript" src="/inhome/js/room/room.js"></script>
-<script type="text/javascript" src="/inhome/js/common/jui.js"></script>
+<script type="text/javascript" src="/inhome/dynamic/js/room/room.js"></script>
+<script type="text/javascript" src="/inhome/dynamic/js/common/jui.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="/inhome/css/roomType/miniPaginationRoomType.css" />
+	href="/inhome/dynamic/css/roomType/miniPaginationRoomType.css" />
 <link rel="stylesheet" type="text/css"
-	href="/inhome/css/room/miniPaginationRoom.css" />
+	href="/inhome/dynamic/css/room/miniPaginationRoom.css" />
 
 
 <style type="text/css">

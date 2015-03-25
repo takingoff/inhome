@@ -40,8 +40,8 @@ h2{
 </style>
 
 <link rel="stylesheet" type="text/css"
-	href="/inhome/css/bill/bill.css" />
-<script type="text/javascript" src="/inhome/js/bill/bill.js"></script>
+	href="/inhome/dynamic/css/bill/bill.css" />
+<script type="text/javascript" src="/inhome/dynamic/js/bill/bill.js"></script>
 
 
 

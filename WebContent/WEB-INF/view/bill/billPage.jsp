@@ -7,8 +7,8 @@
 <%@include file="/jsp/juiNeed.jsp" %>
 
 <link rel="stylesheet" type="text/css"
-	href="/inhome/css/bill/bill.css" />
-<script type="text/javascript" src="/inhome/js/bill/bill.js"></script>
+	href="/inhome/dynamic/css/bill/bill.css" />
+<script type="text/javascript" src="/inhome/dynamic/js/bill/bill.js"></script>
 
 <style type="text/css">
 </style>

@@ -5,12 +5,12 @@
 <head>
 <title>管理员登录</title>
 
-<link rel="stylesheet" type="text/css" href="easyUi/default.css">
-<link rel="stylesheet" type="text/css" href="easyUi/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="easyUi/themes/icon.css">
-<script type="text/javascript" src="easyUi/jquery.min.js"></script>
-<script type="text/javascript" src="easyUi/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="easyUi/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="static/easyUi/default.css">
+<link rel="stylesheet" type="text/css" href="static/easyUi/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="static/easyUi/themes/icon.css">
+<script type="text/javascript" src="static/easyUi/jquery.min.js"></script>
+<script type="text/javascript" src="static/easyUi/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="static/easyUi/locale/easyui-lang-zh_CN.js"></script>
 
 
 

@@ -7,12 +7,12 @@
     <meta charset="UTF-8">
     <title>控制中心</title>
     
-	<link rel="stylesheet" href="/inhome/jqueryUi/css/${sessionScope.theme }/jquery-ui.css">
-	<link rel="stylesheet" href="/inhome/css/controlCenter/controlCenter.css">
-	<script src="/inhome/jqueryUi/js/jquery-1.10.2.js"></script>
-	<script src="/inhome/jqueryUi/js/jquery-ui-1.10.4.custom.js"></script>
-	<script src="/inhome/js/controlCenter/menu.js"></script>
-	<script src="/inhome/js/controlCenter/controlCenter.js"></script>
+	<link rel="stylesheet" href="/inhome/static/jqueryUi/css/${sessionScope.theme }/jquery-ui.css">
+	<link rel="stylesheet" href="/inhome/dynamic/css/controlCenter/controlCenter.css">
+	<script src="/inhome/static/jqueryUi/js/jquery-1.10.2.js"></script>
+	<script src="/inhome/static/jqueryUi/js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="/inhome/dynamic/js/controlCenter/menu.js"></script>
+	<script src="/inhome/dynamic/js/controlCenter/controlCenter.js"></script>
 	
 	<style type="text/css">
 	</style>
