@@ -56,7 +56,7 @@
 		};
 
 		//每一分钟更新一次房态！！！
-		setInterval("requestRoomTrend('.room')", 60000);
+		setTimeout("requestRoomTrend('.room')", 60000);
 	});
 
 	function requestRoomTrend(selector) {
