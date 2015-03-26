@@ -1,111 +1,89 @@
 //最初显示的是iframeRooom
-$(function()
-{
+$(function() {
 	displayAiframe("iframeRoom");
 });
 // 显示某个iframe
-function displayAiframe(id)
-{
+function displayAiframe(id) {
 	$("iframe").hide();
 	$("#" + id).show();
-	if (id == "iframeRoom" || id == "iframeRoomPage")
-	{
+	if (id == "iframeRoom" || id == "iframeRoomPage") {
 		$("#neckId").show();
 	}
-	else
-	{
+	else {
 		$("#neckId").hide();
 	}
 }
 
 // 设置iframe的高度(自适应)
-function iframeHeight(id)
-{
+function iframeHeight(id) {
 	$('#' + id).height($(window).height() - $('#tabs').height() - 40);
 }
 // 请求URL1 返回刷行URL2
-function urlRequestAndBack(url1,data,url2)
-{
-	$.ajax(
-	{
+function urlRequestAndBack(url1,data,url2) {
+	$.ajax({
 		url : url1,
 		type : 'POST',
 		data : data,
-		success : function(data)
-		{
+		success : function(data) {
 			window.location.href = url2;
 		}
 	});
 }
 // 改变背景
-function changeInnEntry(key,id)
-{
+function changeInnEntry(key,id) {
 	var url = '/inhome/common/changeInnEntry.do';
-	var data =
-	{
+	var data = {
 		key : key,
 		value : $("#" + id).val()
 	};
 	urlRequestAndBack(url, data, '/inhome/common/controlCenter.do');
 }
 // 刷新按钮
-function freshClick()
-{
+function freshClick() {
 	window.location.href = '/inhome/common/controlCenter.do';
 }
 // 退出登录
-function staffLogout()
-{
+function staffLogout() {
 	window.location.href = '/inhome/common/logout.do';
 }
 // 刷新房态
-function refreshRoomTrend()
-{
-//	document.getElementById('iframeRoom').contentWindow.refresh();
-	frames["iframeRoom"].refresh();//refresh方法定义在roomTrend中
+function refreshRoomTrend() {
+	//	document.getElementById('iframeRoom').contentWindow.refresh();
+	frames["iframeRoom"].contentWindow.refresh();//refresh方法定义在roomTrend中
 }
 
 var showRoomTrend = true;
 var roomPageHasRequest = false;
-function changeRoomView()
-{
-	if (showRoomTrend)
-	{
+function changeRoomView() {
+	if (showRoomTrend) {
 		displayAiframe("iframeRoomPage");
 		showRoomTrend = false;
-		if (roomPageHasRequest)
-		{
+		if (roomPageHasRequest) {
 			return;
 		}
-		else
-		{
+		else {
 			$("#iframeRoomPage").attr("src", "/inhome/room/roomPageView.do");
 			roomPageHasRequest = true;
 		}
 	}
-	else
-	{
+	else {
 		displayAiframe("iframeRoom");
-		frames["iframeRoom"].refresh();	//refresh方法定义在roomTrend中
 		showRoomTrend = true;
+		frames["iframeRoom"].contentWindow.refresh();
 	}
 }
-function displayRoomiframe()
-{
-	if (showRoomTrend)
-	{
+function displayRoomiframe() {
+	if (showRoomTrend) {
 		displayAiframe("iframeRoom");
 	}
-	else
-	{
+	else {
 		displayAiframe("iframeRoomPage");
 	}
 }
 
 //房间类型的iframe 操作
 var roomTypeHasBeRequest = false;
-function displayRoomTypeiframe()
-{
+function displayRoomTypeiframe() {
 	displayAiframe("iframeRoomType");
 	if (roomTypeHasBeRequest)
 		return;
@@ -115,8 +93,7 @@ function displayRoomTypeiframe()
 
 //房间类型的iframe 操作
 var enteredInfoHasBeRequest = false;
-function displayEnteredInfoiframe()
-{
+function displayEnteredInfoiframe() {
 	displayAiframe("iframeEnteredInfo");
 	if (enteredInfoHasBeRequest)
 		return;
@@ -126,12 +103,10 @@ function displayEnteredInfoiframe()
 
 //房间类型的iframe 操作
 var billHasBeRequest = false;
-function displayBilliframe()
-{
+function displayBilliframe() {
 	displayAiframe("iframeBill");
 	if (billHasBeRequest)
 		return;
 	$("#iframeBill").attr("src", "/inhome/common/billPage.do");
 	billHasBeRequest = true;
 }
-
