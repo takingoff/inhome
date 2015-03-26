@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <%@include file="../jsp/juiNeed.jsp" %>
-
 <style type="text/css">
 
 body{

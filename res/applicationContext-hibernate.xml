@@ -78,7 +78,7 @@
 
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="*" propagation="REQUIRED" read-only="false" isolation="SERIALIZABLE" />
+			<tx:method name="*" propagation="REQUIRED" read-only="false" isolation="READ_UNCOMMITTED" />
 		</tx:attributes>
 	</tx:advice>
 

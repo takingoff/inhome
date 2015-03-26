@@ -1,41 +1,38 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<meta name="decorator" content="default"/>
 <title>管理员登录</title>
-
 <style type="text/css">
-
-@font-face { 
-    font-family: "myFont";	 
-    src: url("dynamic/image/SNOWREN.ttf");
-}
-*{
-	font-size:12px;
-}
-body {
-    padding:60px;
-    font-size:14px;
-    margin:0;
-    background-image: url("dynamic/image/login.png");
-    background-size:100% 100%;
-}
-h1
-{
-	font-size:36px;
-	color: #FFDDDD;
-}
-h4 ,.modal-body
-{
-	font-size:26px;
-	color: #000000;
-}
-body{
-	font-family: myFont;
-	color: #FFDDDD;
-}
-
+	@font-face { 
+	    font-family: "myFont";	 
+	    src: url("dynamic/image/SNOWREN.ttf");
+	}
+	*{
+		font-size:12px;
+	}
+	body {
+	    padding:60px;
+	    font-size:14px;
+	    margin:0;
+	    background-image: url("dynamic/image/login.png");
+	    background-size:100% 100%;
+	}
+	h1
+	{
+		font-size:36px;
+		color: #FFDDDD;
+	}
+	h4 ,.modal-body
+	{
+		font-size:26px;
+		color: #000000;
+	}
+	body{
+		font-family: myFont;
+		color: #FFDDDD;
+	}
 </style>
-
 <script>
 	function submitForm()
 	{
@@ -75,15 +72,12 @@ body{
 		$('#authImag').attr('src', 'common/authCode.do?' + Math.random());
 	}
 	
-	$(function(){
-	});
 </script>
 
 </head>
 
 <body>
 <center>
-
 	<!-- 模态框（Modal） -->
 	<div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" 
 	   aria-labelledby="myModalLabel" aria-hidden="true">

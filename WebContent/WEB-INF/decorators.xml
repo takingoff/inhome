@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators defaultdir="/decorators">
-    <decorator name="decorator-default" page="decorator-default.jsp">
-        <pattern>/*</pattern>
+	<excludes>
+          <pattern>/dynamic/*</pattern>
+          <pattern>/static/*</pattern>
+     </excludes>
+    <decorator name="default" page="decorator-default.jsp">
     </decorator>
 </decorators>

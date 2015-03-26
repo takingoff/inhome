@@ -1,14 +1,14 @@
-<%@include file="../jsp/room.jsp"  %>	
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>控制中心</title>
 	
+<%@include file="../jsp/room.jsp"  %>	
 <style type="text/css">
 	@font-face { 
     font-family: "myFont";	 
-    src: url("${ctx}/image/SNOWREN.ttf");
+    src: url("${dynamicRes}/image/SNOWREN.ttf");
 }
 
 
@@ -163,10 +163,8 @@
 	
 </head>
 <body>
-	<!-- 状态（1干净、2在住、3脏房、4不可用房） -->
 	<div id="trendContainerId">
 	</div>	
-	
 	
 </body>
 </html>

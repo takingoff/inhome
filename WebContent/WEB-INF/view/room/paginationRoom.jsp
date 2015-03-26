@@ -1,9 +1,7 @@
-<%@include file="../jsp/room.jsp"  %>	
 <!DOCTYPE html>
 <html>
 <head>
-
-
+<%@include file="../jsp/room.jsp"  %>
 
 <style type="text/css">
 
