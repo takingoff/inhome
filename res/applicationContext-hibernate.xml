@@ -14,7 +14,7 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="org.gjt.mm.mysql.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/inhome" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3307/inhome" />
 		<property name="minPoolSize" value="5" />
 		<property name="maxPoolSize" value="30" />
 		<property name="maxIdleTime" value="30" />

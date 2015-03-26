@@ -52,6 +52,7 @@
 		<property name="OPEN_ACCESS_INTERCEPTOR" value="true"></property>
 		<property name="EXCLUDE_INTERCEPTOR">
 			<list>
+				<value>common/enterLogin.do</value>
 				<value>common/login.do</value>
 				<value>common/authCode.do</value>
 				<value>common/checkAuthCode.do</value>

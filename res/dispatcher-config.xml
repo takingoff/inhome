@@ -29,9 +29,6 @@
 		</property>
 	</bean>
 
-	<bean
-		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
-
 	<!-- 定义拦截器 在request产生时拦截 -->
 	<!-- 必须配置的adapter 必须设置编码，否则可能会有乱码产生 -->
 	<bean
