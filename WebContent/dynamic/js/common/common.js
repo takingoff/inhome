@@ -21,6 +21,11 @@ function closeDialog(id) {
 function destroyDialog(id) {
 	$("#" + id).dialog("destroy");
 }
+/**
+ * ajax返回后的消息提示框
+ * @param message
+ * @param title
+ */
 function openMessageDialog(message,title) {
 	$("<div title='" + title + "'><p>" + message + "</p></div>").dialog({
 		width : 100,
@@ -32,11 +37,19 @@ function openMessageDialog(message,title) {
 		}
 	});
 }
-// 验证码请求
+/**
+ * @param id  图片设置为返回的验证码
+ */
 function authCodeClick(id) {
 	$('#' + id).attr('src', getRootPath()+'/common/authCode.do?' + Math.random());
 }
-// 验证码确认后执行
+
+/**
+ * 打开对话框 验证码确认后执行
+ * @param message
+ * @param title
+ * @param Func,执行的回调函数
+ */
 function openConfirmDialog(message,title,Func) {
 	$(
 			"<div id=\"confirmDialog\" title='" + title + "'><p>" + message + "</p>"
@@ -70,7 +83,13 @@ function openConfirmDialog(message,title,Func) {
 	});
 }
 
-//删除单个
+/**
+ * @param entityFormId		当前表单id
+ * @param id				要删除的Entity的标识符表单名字（会从表单中取出该字段）。
+ * @param entityDialogId	开始执行删除要关闭的dialog
+ * @param paginationDIV		删除后要刷新的分页div。
+ * @param url				删除地址
+ */
 function deleteAEntity(entityFormId,id,entityDialogId,paginationDIV,url) {
 
 	var idJson = "[\"" + $("#" + entityFormId + " input[name=" + id + "]").val() + "\"]";
@@ -78,7 +97,12 @@ function deleteAEntity(entityFormId,id,entityDialogId,paginationDIV,url) {
 	destroyDialog(entityDialogId); //单个删除后关闭对话框。
 }
 
-//ajax 删除。参数为id的json形式
+/**
+ * 使用deleteAEntity
+ * @param paginationDIV
+ * @param url
+ * @param idJson
+ */
 function deleteEntity(paginationDIV,url,idJson) {
 	openConfirmDialog("确定要删除吗？", "确认", function() {
 		$.ajax({
@@ -94,6 +118,10 @@ function deleteEntity(paginationDIV,url,idJson) {
 	});
 }
 
+/**
+ * 分页div重置
+ * @param paginationDIV
+ */
 function paginationDIVRefresh(paginationDIV) {
 	//更新标记
 	$("#tools_" + paginationDIV + "_drop_select_launcher").button({
