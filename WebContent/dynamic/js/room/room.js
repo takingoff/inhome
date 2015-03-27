@@ -10,7 +10,7 @@ $(function() {
 	//修改房间表单验证 ajax 提交  valid.form 是一个事件。
 	$('#entityRoomForm').bind('valid.form', function() {
 		$.ajax({
-			url : '/inhome/room/roomModify.do',
+			url : getRootPath()+'/room/roomModify.do',
 			type : 'POST',
 			data : $(this).serialize(),
 			success : function(data) {
@@ -25,7 +25,7 @@ $(function() {
 	//入住操作验证
 	$('#enterInFormId').bind('valid.form', function() {
 		$.ajax({
-			url : '/inhome/entered/enteredAdd.do',
+			url : getRootPath()+'/entered/enteredAdd.do',
 			type : 'POST',
 			data : $(this).serialize(),
 			success : function(data) {
@@ -39,7 +39,7 @@ $(function() {
 	//入住后修改操作验证
 	$('#enteredFormId').bind('valid.form', function() {
 		$.ajax({
-			url : '/inhome/entered/enteredModify.do',
+			url : getRootPath()+'/entered/enteredModify.do',
 			type : 'POST',
 			data : $(this).serialize(),
 			success : function(data) {
@@ -53,7 +53,7 @@ $(function() {
 	//入住后续住操作验证
 	$('#enteredConinueFormId').bind('valid.form', function() {
 		$.ajax({
-			url : '/inhome/entered/enteredContinue.do',
+			url : getRootPath()+'/entered/enteredContinue.do',
 			type : 'POST',
 			data : $(this).serialize(),
 			success : function(data) {
@@ -76,7 +76,7 @@ function deleteARoom() {
 function deleteRoom(idJson) {
 	openConfirmDialog("确定要删除吗？将不可恢复", "确认", function() {
 		$.ajax({
-			url : '/inhome/room/roomDelete.do',
+			url : getRootPath()+'/room/roomDelete.do',
 			data : idJson,
 			contentType : "application/json",
 			type : 'POST',
@@ -88,7 +88,7 @@ function deleteRoom(idJson) {
 	});
 }
 function billDetailOpen() {
-	window.open("/inhome/common/enteredBillPage.do?enteredId=" + $("#enteredFormId input[name=id]").val());
+	window.open(getRootPath()+"/common/enteredBillPage.do?enteredId=" + $("#enteredFormId input[name=id]").val());
 	destroyDialog("enteredDialogId");
 }
 function openEnterInDialog() {
@@ -139,7 +139,7 @@ function openContinueDialog() {
 
 function requestARoom(id) {
 	$.ajax({
-		url : '/inhome/room/roomGet.do',
+		url : getRootPath()+'/room/roomGet.do',
 		data : JSON.stringify(id),
 		contentType : "application/json",
 		type : 'POST',

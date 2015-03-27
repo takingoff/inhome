@@ -31,20 +31,20 @@ function urlRequestAndBack(url1,data,url2) {
 }
 // 改变背景
 function changeInnEntry(key,id) {
-	var url = '/inhome/common/changeInnEntry.do';
+	var url = getRootPath()+'/common/changeInnEntry.do';
 	var data = {
 		key : key,
 		value : $("#" + id).val()
 	};
-	urlRequestAndBack(url, data, '/inhome/common/controlCenter.do');
+	urlRequestAndBack(url, data, getRootPath()+'/common/controlCenter.do');
 }
 // 刷新按钮
 function freshClick() {
-	window.location.href = '/inhome/common/controlCenter.do';
+	window.location.href = getRootPath()+'/common/controlCenter.do';
 }
 // 退出登录
 function staffLogout() {
-	window.location.href = '/inhome/common/logout.do';
+	window.location.href = getRootPath()+'/common/logout.do';
 }
 // 刷新房态
 function refreshRoomTrend() {
@@ -62,7 +62,7 @@ function changeRoomView() {
 			return;
 		}
 		else {
-			$("#iframeRoomPage").attr("src", "/inhome/room/roomPageView.do");
+			$("#iframeRoomPage").attr("src", getRootPath()+"/room/roomPageView.do");
 			roomPageHasRequest = true;
 		}
 	}
@@ -87,7 +87,7 @@ function displayRoomTypeiframe() {
 	displayAiframe("iframeRoomType");
 	if (roomTypeHasBeRequest)
 		return;
-	$("#iframeRoomType").attr("src", "/inhome/roomType/roomType.do");
+	$("#iframeRoomType").attr("src", getRootPath()+"/roomType/roomType.do");
 	roomTypeHasBeRequest = true;
 }
 
@@ -97,7 +97,7 @@ function displayEnteredInfoiframe() {
 	displayAiframe("iframeEnteredInfo");
 	if (enteredInfoHasBeRequest)
 		return;
-	$("#iframeEnteredInfo").attr("src", "/inhome/entered/enteredPageView.do");
+	$("#iframeEnteredInfo").attr("src", getRootPath()+"/entered/enteredPageView.do");
 	enteredInfoHasBeRequest = true;
 }
 
@@ -107,6 +107,6 @@ function displayBilliframe() {
 	displayAiframe("iframeBill");
 	if (billHasBeRequest)
 		return;
-	$("#iframeBill").attr("src", "/inhome/common/billPage.do");
+	$("#iframeBill").attr("src", getRootPath()+"/common/billPage.do");
 	billHasBeRequest = true;
 }

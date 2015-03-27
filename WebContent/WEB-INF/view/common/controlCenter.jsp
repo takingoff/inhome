@@ -9,6 +9,7 @@
 	<script src="${staticRes}/jqueryUi/js/jquery-1.10.2.js"></script>
 	<script src="${staticRes}/jqueryUi/js/jquery-ui-1.10.4.custom.js"></script>
 	<script src="${dynamicRes}/js/controlCenter/menu.js"></script>
+	<script src="${dynamicRes}/js/common/common.js"></script>
 	<script src="${dynamicRes}/js/controlCenter/controlCenter.js"></script>
 	
 	<style type="text/css">
