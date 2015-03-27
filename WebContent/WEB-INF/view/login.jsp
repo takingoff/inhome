@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="decorator" content="default"/>
+<script type="text/javascript" src="${staticRes }/md5.js"></script>
 <title>管理员登录</title>
 <style type="text/css">
 	@font-face { 
@@ -44,7 +45,8 @@
 		$.ajax(
 		{
 			url : 'common/login.do',
-			data : $('#ff').serialize(),
+// 			data : $('#ff').serialize(),
+			data:'name='+$("#ff input[name=name]").val()+'&password='+hex_md5($("#ff input[name=password]").val())+'&authCode='+$("#ff input[name=authCode]").val(),
 			type : 'POST',  
 			success : function(data)
 			{
