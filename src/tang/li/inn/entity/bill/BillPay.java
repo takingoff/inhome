@@ -21,7 +21,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
-import tang.li.inn.entity.BaseEntity;
+import tang.li.inn.entity.CommonEntity;
 import tang.li.inn.entity.entered.EnteredInfo;
 import tang.li.inn.entity.room.Room;
 
@@ -34,7 +34,7 @@ import tang.li.inn.entity.room.Room;
  */
 @Entity
 @Table(name = "T_BILL_PAY")
-public class BillPay extends BaseEntity
+public class BillPay extends CommonEntity
 {
 	private static final long serialVersionUID = 1L;
 	private String genTime;

@@ -21,7 +21,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
-import tang.li.inn.entity.BaseEntity;
+import tang.li.inn.entity.CommonEntity;
 
 /**
  *<description>
@@ -32,7 +32,7 @@ import tang.li.inn.entity.BaseEntity;
  */
 @Entity
 @Table(name = "T_ROOM")
-public class Room extends BaseEntity
+public class Room extends CommonEntity
 {
 	private static final long serialVersionUID = 1L;
 	private String genTime;

@@ -16,19 +16,19 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 /**
- *<description>
- *@author tangli <tanglidehaizi@gamil.com>
- *@version V1.0 
- *@see 
- *@since
-*/
+ * <description>
+ * 
+ * @author tangli <tanglidehaizi@gamil.com>
+ * @version V1.0
+ * @see
+ * @since
+ */
 public class AopTrace
 {
 	public AopTrace()
 	{
 		System.out.println("/***************AopTraceStartup***************/");
 	}
-	
 
 	/**
 	 * This is the method which I would like to execute before a selected method
@@ -37,7 +37,8 @@ public class AopTrace
 	public void beforeAdvice(JoinPoint jp)
 	{
 		String message = "**********执行：" + jp.getTarget().getClass().getSimpleName() + "."
-//				String message = "---------------\n**********执行：" + jp.getTarget().getClass().getSimpleName() + "."
+		// String message = "---------------\n**********执行：" +
+		// jp.getTarget().getClass().getSimpleName() + "."
 				+ jp.getSignature().getName() + "(";
 
 		Object[] args = jp.getArgs();
@@ -47,7 +48,7 @@ public class AopTrace
 			if (i < args.length - 1)
 				message += ",";
 		}
-//		System.out.println(message + ")\n---------------");
+		// System.out.println(message + ")\n---------------");
 		System.out.println(message + ")");
 	}
 
@@ -64,7 +65,7 @@ public class AopTrace
 	 */
 	public void afterReturningAdvice(Object retVal)
 	{
-//		System.out.println(retVal);
+		// System.out.println(retVal);
 	}
 
 	/**
@@ -73,10 +74,9 @@ public class AopTrace
 	 */
 	public void AfterThrowingAdvice(IllegalArgumentException ex)
 	{
-		
+
 	}
-	
-	
+
 	public void aroundAdvice(ProceedingJoinPoint pjp)
 	{
 		try
@@ -89,6 +89,5 @@ public class AopTrace
 			System.out.println("AopTrace exception ---aroundAdvice");
 		}
 	}
-
 
 }

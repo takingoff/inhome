@@ -17,7 +17,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import tang.li.inn.entity.BaseEntity;
+import tang.li.inn.entity.CommonEntity;
 //@MappedSuperclass
 /**
  *<description>
@@ -28,7 +28,7 @@ import tang.li.inn.entity.BaseEntity;
 */
 @Entity
 @Table(name = "T_STAFF")
-public class Staff extends BaseEntity
+public class Staff extends CommonEntity
 {
 	private static final long serialVersionUID = 1L;
 	private String genTime;

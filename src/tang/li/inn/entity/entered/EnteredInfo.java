@@ -22,7 +22,7 @@ import javax.persistence.Transient;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
-import tang.li.inn.entity.BaseEntity;
+import tang.li.inn.entity.CommonEntity;
 import tang.li.inn.entity.room.Room;
 
 /**
@@ -34,7 +34,7 @@ import tang.li.inn.entity.room.Room;
  */
 @Entity
 @Table(name = "T_ENTERED_INFO")
-public class EnteredInfo extends BaseEntity
+public class EnteredInfo extends CommonEntity
 {
 	private static final long serialVersionUID = 1L;
 	private String enteredTime;

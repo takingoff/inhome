@@ -22,7 +22,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
-import tang.li.inn.entity.BaseEntity;
+import tang.li.inn.entity.CommonEntity;
 
 /**
  *<description>
@@ -33,7 +33,7 @@ import tang.li.inn.entity.BaseEntity;
 */
 @Entity
 @Table(name="T_STAFF_LOG")
-public class StaffLog extends BaseEntity
+public class StaffLog extends CommonEntity
 {
 	private static final long serialVersionUID = -1286224758178247422L;
 	
