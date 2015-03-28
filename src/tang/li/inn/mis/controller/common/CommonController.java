@@ -107,7 +107,8 @@ public class CommonController
 				return InnConstant.LOGIN_STAFF_NOT_EXIST;
 			}
 			//密码错误
-			if(!staff.getPassword().equals(password))
+			String pass = StringUtil.getMD5Str(password);
+			if(!staff.getPassword().equals(pass))
 			{
 				return InnConstant.LOGIN_STAFF_PSSWORD_ERROR;
 			}
@@ -120,7 +121,7 @@ public class CommonController
 			//登录成功后返回 null客户端接着处理
 			return null;
 		}
-		catch (InnException e)
+		catch (Exception e)
 		{
 			e.printStackTrace();
 			return InnConstant.ACCESS_EXCEPTION;

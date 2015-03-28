@@ -11,6 +11,7 @@
  */
 package tang.li.inn.infrastructure.util;
 
+import java.security.MessageDigest;
 import java.util.Date;
 
 /**
@@ -25,9 +26,9 @@ public class StringUtil
 {
 	static public boolean validateAuthCode(String s1, String s2)
 	{
-		if(s1==null||s2==null)
+		if (s1 == null || s2 == null)
 			return false;
-		
+
 		if (s1.compareToIgnoreCase(s2) == 0)
 			return true;
 		return false;
@@ -96,6 +97,32 @@ public class StringUtil
 	public static boolean checkNull(String str)
 	{
 		return (str == null) || (str.isEmpty());
+	}
+
+	/**
+	 * @param str
+	 * @return
+	 * @throws Exception
+	 */
+	public static String getMD5Str(String str) throws Exception
+	{
+		MessageDigest messageDigest = null;
+		messageDigest = MessageDigest.getInstance("MD5");
+		messageDigest.reset();
+		messageDigest.update(str.getBytes("UTF-8"));
+		byte[] byteArray = messageDigest.digest();
+		StringBuffer md5StrBuff = new StringBuffer();
+		int j,val= 0;
+		for (int i = 0; i < byteArray.length; i++)
+		{
+			j = 0XFF& byteArray[i];
+			val += j;
+			if (Integer.toHexString(j).length() == 1)
+				md5StrBuff.append("0").append(Integer.toHexString(j));
+			else
+				md5StrBuff.append(Integer.toHexString(j));
+		}
+		return md5StrBuff.toString()+val;
 	}
 
 }
