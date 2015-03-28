@@ -111,7 +111,7 @@
 	<div class="container" style="width:45%;">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			<form class="form-horizontal" role="form" id="ff" method="post" action="common/login.do">
+			<form class="form-horizontal" role="form" id="ff" method="post"  action="common/login.do">
 				<div class="form-group">
 					<div class="col-sm-8 input-group">
 						 <span class="input-group-addon">用户名</span>
@@ -121,6 +121,7 @@
 				<div class="form-group">
 					<div class="col-sm-8 input-group">
 						<span class="input-group-addon">密@码</span>
+						<input type="password" style="display:none"><!-- 解决自动输入 -->
 						<input type="password" name="password" class="form-control " id="password" />
 					</div>
 				</div>
