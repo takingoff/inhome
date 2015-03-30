@@ -112,17 +112,33 @@ public class StringUtil
 		messageDigest.update(str.getBytes("UTF-8"));
 		byte[] byteArray = messageDigest.digest();
 		StringBuffer md5StrBuff = new StringBuffer();
-		int j,val= 0;
+		int j;
 		for (int i = 0; i < byteArray.length; i++)
 		{
 			j = 0XFF& byteArray[i];
-			val += j;
 			if (Integer.toHexString(j).length() == 1)
 				md5StrBuff.append("0").append(Integer.toHexString(j));
 			else
 				md5StrBuff.append(Integer.toHexString(j));
 		}
-		return md5StrBuff.toString()+val;
+		return md5StrBuff.toString();
+	}
+	
+	public static void main(String[] a)
+	{
+		
+		try
+		{
+			String md5Str;
+			md5Str = getMD5Str(getMD5Str("tangli")+"tangli");
+			System.out.println(md5Str);
+		}
+		catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }

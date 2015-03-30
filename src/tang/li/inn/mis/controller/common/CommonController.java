@@ -103,7 +103,7 @@ public class CommonController
 			}
 
 			Subject currentUser = SecurityUtils.getSubject();
-			UsernamePasswordToken token = new UsernamePasswordToken(name, password);
+			UsernamePasswordToken token = new UsernamePasswordToken(name, StringUtil.getMD5Str(password+name));
 			token.setRememberMe(true);
 			currentUser.login(token);
 
@@ -114,7 +114,7 @@ public class CommonController
 				return InnConstant.LOGIN_STAFF_NOT_EXIST;
 			}
 			// 密码错误
-			String pass = StringUtil.getMD5Str(password);
+			String pass = StringUtil.getMD5Str(password+name);
 			if (!staff.getPassword().equals(pass))
 			{
 				return InnConstant.LOGIN_STAFF_PSSWORD_ERROR;

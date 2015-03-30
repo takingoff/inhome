@@ -59,8 +59,8 @@
 			<artifactId>shiro-spring</artifactId>
 			<version>1.2.3</version>
 		</dependency>
-		
-		
+
+
 		<!-- javax -->
 		<!-- <dependency> -->
 		<!-- <groupId>javax.servlet</groupId> -->
@@ -121,7 +121,7 @@
 			<artifactId>commons-collections4</artifactId>
 			<version>4.0</version>
 		</dependency>
-
+	
 		<!-- quartz -->
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
@@ -149,7 +149,7 @@
 		<!-- shiro -->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-core</artifactId>
+			<artifactId>shiro-spring</artifactId>
 			<version>1.2.3</version>
 		</dependency>
 

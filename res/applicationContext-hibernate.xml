@@ -14,7 +14,7 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="org.gjt.mm.mysql.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/inhome" />
+		<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3307/inhome" />
 		<property name="minPoolSize" value="5" />
 		<property name="maxPoolSize" value="30" />
 		<property name="maxIdleTime" value="30" />
@@ -26,7 +26,7 @@
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.connection.username">tangli</prop>
+				<prop key="hibernate.connection.username">root</prop>
 				<prop key="hibernate.connection.password">tangli</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">false</prop>
@@ -112,5 +112,5 @@
 		</aop:aspect>
 	</aop:config>
 
-
+	<bean name="applicationContextHolder" class="tang.li.inn.mis.util.ApplicationContextHolder"></bean>
 </beans>

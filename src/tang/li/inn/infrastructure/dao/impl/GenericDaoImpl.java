@@ -40,18 +40,17 @@ import tang.li.inn.infrastructure.util.ReflectUtil;
  * @see
  * @since
  */
-public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupport implements
-		GenericDao<T, PK>
+public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupport implements GenericDao<T, PK>
 {
 
-	//@Entity 对应的class 主要作用在Criteria查询时需要通过反射将数据 转换成相应的entity对象。
+	// @Entity 对应的class 主要作用在Criteria查询时需要通过反射将数据 转换成相应的entity对象。
 	protected Class<?> entityClass;
 
 	public GenericDaoImpl()
 	{
 		this.entityClass = (Class<?>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-		
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+entityClass.toString());
+
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + entityClass.toString());
 	}
 
 	public Session createSession() throws InnException
@@ -65,7 +64,7 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 			throw new InnException(InnErrorsUtil.getInnError("inn.dao.createSession"), e);
 		}
 	}
-	
+
 	public boolean delete(T entity) throws InnException
 	{
 		Assert.notNull(entity);
@@ -346,21 +345,20 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public PaginationSupport pagedFind(int startIndex, int rowsPerPage, String hql, boolean isDesc,
-			Object... values) throws InnException
+	public PaginationSupport pagedFind(int startIndex, int rowsPerPage, String hql, boolean isDesc, Object... values) throws InnException
 	{
 		Assert.hasText(hql);
 		int totalRows = 0;
-		
+
 		// 得到hql语句 设置参数
-		String _chql ;
-		if(hql.indexOf(InnConstant.FILTER_ORDER_BY) == -1)
+		String _chql;
+		if (hql.indexOf(InnConstant.FILTER_ORDER_BY) == -1)
 		{
-			_chql =  "select count(*) " + hql.substring(hql.indexOf("from"), hql.indexOf(InnConstant.FILTER_ORDER_BY));
+			_chql = "select count(*) " + hql.substring(hql.indexOf("from"), hql.indexOf(InnConstant.FILTER_ORDER_BY));
 		}
 		else
 		{
-			_chql =  "select count(*) " + hql.substring(hql.indexOf("from"));
+			_chql = "select count(*) " + hql.substring(hql.indexOf("from"));
 		}
 		if (isDesc)
 		{
@@ -376,9 +374,8 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 				cQuery.setParameter(i, values[i]);
 			}
 		}
-		
-		
-		///获取总记录数
+
+		// /获取总记录数
 		List _list = null;
 		try
 		{
@@ -395,14 +392,14 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 				totalRows = ((Long) _list.get(0)).intValue();
 			}
 		}
-		
+
 		// 如果传入的“每页记录数参数为0”那么将其设置为“总记录数”
 		if (0 == rowsPerPage)
 		{
 			rowsPerPage = totalRows;
 		}
-		
-		//获取记录
+
+		// 获取记录
 		query.setFirstResult(startIndex);
 		query.setMaxResults(rowsPerPage);
 		List _items = null;
@@ -424,21 +421,20 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public <C> PaginationSupport<C> pagedCustomFind(int startIndex, int rowsPerPage, String hql,
-			boolean isDesc, Class<C> C, String[] fields, Object... values) throws InnException
+	public <C> PaginationSupport<C> pagedCustomFind(int startIndex, int rowsPerPage, String hql, boolean isDesc, Class<C> C, String[] fields, Object... values) throws InnException
 	{
 		Assert.hasText(hql);
 		int totalRows = 0;
-		
+
 		// 得到hql语句 设置参数
-		String _chql ;
-		if(hql.indexOf(InnConstant.FILTER_ORDER_BY) == -1)
+		String _chql;
+		if (hql.indexOf(InnConstant.FILTER_ORDER_BY) == -1)
 		{
-			_chql =  "select count(*) " + hql.substring(hql.indexOf("from"), hql.indexOf(InnConstant.FILTER_ORDER_BY));
+			_chql = "select count(*) " + hql.substring(hql.indexOf("from"), hql.indexOf(InnConstant.FILTER_ORDER_BY));
 		}
 		else
 		{
-			_chql =  "select count(*) " + hql.substring(hql.indexOf("from"));
+			_chql = "select count(*) " + hql.substring(hql.indexOf("from"));
 		}
 		if (isDesc)
 		{
@@ -454,9 +450,8 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 				cQuery.setParameter(i, values[i]);
 			}
 		}
-		
-		
-		///获取总记录数
+
+		// /获取总记录数
 		List _list = null;
 		try
 		{
@@ -473,14 +468,14 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 				totalRows = ((Long) _list.get(0)).intValue();
 			}
 		}
-		
+
 		// 如果传入的“每页记录数参数为0”那么将其设置为“总记录数”
 		if (0 == rowsPerPage)
 		{
 			rowsPerPage = totalRows;
 		}
-		
-		//获取记录
+
+		// 获取记录
 		query.setFirstResult(startIndex);
 		query.setMaxResults(rowsPerPage);
 		List result = null;
@@ -500,21 +495,20 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public <C> PaginationSupport<C> pagedFind(int startIndex, int rowsPerPage, String hql,
-			boolean isDesc, Class<C> claz, Object... values) throws InnException
+	public <C> PaginationSupport<C> pagedFind(int startIndex, int rowsPerPage, String hql, boolean isDesc, Class<C> claz, Object... values) throws InnException
 	{
 		Assert.hasText(hql);
 		int totalRows = 0;
-		
+
 		// 得到hql语句 设置参数
-		String _chql ;
-		if(hql.indexOf(InnConstant.FILTER_ORDER_BY) == -1)
+		String _chql;
+		if (hql.indexOf(InnConstant.FILTER_ORDER_BY) == -1)
 		{
-			_chql =  "select count(*) " + hql.substring(hql.indexOf("from"), hql.indexOf(InnConstant.FILTER_ORDER_BY));
+			_chql = "select count(*) " + hql.substring(hql.indexOf("from"), hql.indexOf(InnConstant.FILTER_ORDER_BY));
 		}
 		else
 		{
-			_chql =  "select count(*) " + hql.substring(hql.indexOf("from"));
+			_chql = "select count(*) " + hql.substring(hql.indexOf("from"));
 		}
 		if (isDesc)
 		{
@@ -530,9 +524,8 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 				cQuery.setParameter(i, values[i]);
 			}
 		}
-		
-		
-		///获取总记录数
+
+		// /获取总记录数
 		List _list = null;
 		try
 		{
@@ -549,14 +542,14 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 				totalRows = ((Long) _list.get(0)).intValue();
 			}
 		}
-		
+
 		// 如果传入的“每页记录数参数为0”那么将其设置为“总记录数”
 		if (0 == rowsPerPage)
 		{
 			rowsPerPage = totalRows;
 		}
-		
-		//获取记录
+
+		// 获取记录
 		query.setFirstResult(startIndex);
 		query.setMaxResults(rowsPerPage);
 		List<C> _items = null;
@@ -577,42 +570,38 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 		return ps;
 	}
 
-
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public <C> JuiPaginationSupport<C> juiPageFind(int pageNum, int rowsPerPage, String hql,
-			List<Object> values) throws InnException
+	public <C> JuiPaginationSupport<C> juiPageFind(int pageNum, int rowsPerPage, String hql, List<Object> values) throws InnException
 	{
-		
-		
+
 		Assert.hasText(hql);
-		
+
 		// 得到hql语句 设置参数
-		String _chql ;
-		if(hql.indexOf(InnConstant.FILTER_ORDER_BY) == -1)
+		String _chql;
+		if (hql.indexOf(InnConstant.FILTER_ORDER_BY) == -1)
 		{
-			_chql =  "select count(*) " + hql.substring(hql.indexOf("from"));
+			_chql = "select count(*) " + hql.substring(hql.indexOf("from"));
 		}
 		else
 		{
-			_chql =  "select count(*) " + hql.substring(hql.indexOf("from"), hql.indexOf(InnConstant.FILTER_ORDER_BY));
+			_chql = "select count(*) " + hql.substring(hql.indexOf("from"), hql.indexOf(InnConstant.FILTER_ORDER_BY));
 		}
-		
+
 		Query cQuery = createSession().createQuery(_chql);
 		Query query = createSession().createQuery(hql);
-		
+
 		if (null != values)
 		{
 			for (int i = 0; i < values.size(); i++)
 			{
-				
+
 				query.setParameter(i, values.get(i));
 				cQuery.setParameter(i, values.get(i));
 			}
 		}
-		
-		
-		///获取总记录数
+
+		// /获取总记录数
 		List _list = null;
 		int totalRows = 0;
 		try
@@ -630,15 +619,15 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 				totalRows = ((Long) _list.get(0)).intValue();
 			}
 		}
-		
+
 		// 如果传入的“每页记录数参数为0”那么将其设置为“总记录数”
 		if (0 == rowsPerPage)
 		{
 			rowsPerPage = totalRows;
 		}
-		
-		//获取记录
-		int startIndex = pageNum<=0?0:(pageNum-1)*rowsPerPage;
+
+		// 获取记录
+		int startIndex = pageNum <= 0 ? 0 : (pageNum - 1) * rowsPerPage;
 		query.setFirstResult(startIndex);
 		query.setMaxResults(rowsPerPage);
 		List<C> pageData = null;
@@ -655,9 +644,9 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 		{
 			pageData = new ArrayList<C>();
 		}
-		return new JuiPaginationSupport(null,totalRows,pageData);
+		return new JuiPaginationSupport(null, totalRows, pageData);
 	}
-	
+
 	@Override
 	public Object executeHQLQuery(String hql, Object... values) throws InnException
 	{
@@ -675,13 +664,13 @@ public class GenericDaoImpl<T, PK extends Serializable> extends HibernateDaoSupp
 			}
 			@SuppressWarnings("unchecked")
 			List<Object> list = query.list();
-			
-			return list==null?null:list.get(0);
+
+			return list == null ? null : list.get(0);
 		}
 		catch (Exception e)
 		{
 			throw new InnException(InnErrorsUtil.getInnError("inn.dao.executeUpdate"), e);
 		}
 	}
-	
+
 }
