@@ -19,6 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,7 +94,7 @@ public class CommonController
 
 	@RequestMapping("/login")
 	@ResponseBody
-	public String staffLogin(String name, String password, String authCode, HttpSession session)
+	public String staffLogin(String name, String password, String authCode,boolean rememberMe,HttpSession session)
 	{
 		try
 		{
@@ -104,21 +106,22 @@ public class CommonController
 
 			Subject currentUser = SecurityUtils.getSubject();
 			UsernamePasswordToken token = new UsernamePasswordToken(name, StringUtil.getMD5Str(password+name));
-			token.setRememberMe(true);
+			token.setRememberMe(rememberMe);
 			currentUser.login(token);
-
+			
+//
 			Staff staff = staffService.findStaffByName(name);
-			// 用户名不存在
-			if (staff == null)
-			{
-				return InnConstant.LOGIN_STAFF_NOT_EXIST;
-			}
-			// 密码错误
-			String pass = StringUtil.getMD5Str(password+name);
-			if (!staff.getPassword().equals(pass))
-			{
-				return InnConstant.LOGIN_STAFF_PSSWORD_ERROR;
-			}
+//			// 用户名不存在
+//			if (staff == null)
+//			{
+//				return InnConstant.LOGIN_STAFF_NOT_EXIST;
+//			}
+//			// 密码错误
+//			String pass = StringUtil.getMD5Str(password+name);
+//			if (!staff.getPassword().equals(pass))
+//			{
+//				return InnConstant.LOGIN_STAFF_PSSWORD_ERROR;
+//			}
 
 			// 登录成功 保存用户名 用户级别 ，以及T_INN_CONTAINER表中的键值对
 			SessionUtil.saveStaffLEVEL(session, staff.getLevel());
@@ -127,6 +130,14 @@ public class CommonController
 
 			// 登录成功后返回 null客户端接着处理
 			return null;
+		}
+		catch (UnknownAccountException uae)
+		{
+			return InnConstant.LOGIN_STAFF_NOT_EXIST;
+		}
+		catch (IncorrectCredentialsException ice)
+		{
+			return InnConstant.LOGIN_STAFF_PSSWORD_ERROR;
 		}
 		catch (Exception e)
 		{

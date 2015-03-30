@@ -41,12 +41,12 @@
 		$("#modalAlert").modal({
 			show:true,
 		});
-		
 		$.ajax(
 		{
 			url : 'common/login.do',
 // 			data : $('#ff').serialize(),
-			data:'name='+$("#ff input[name=name]").val()+'&password='+hex_md5($("#ff input[name=password]").val())+'&authCode='+$("#ff input[name=authCode]").val(),
+			data:'name='+$("#ff input[name=name]").val()+'&password='+hex_md5($("#ff input[name=password]").val())+
+			'&authCode='+$("#ff input[name=authCode]").val()+'&rememberMe='+$("#ff input[name=rememberMe]")[0].checked,
 			type : 'POST',  
 			success : function(data)
 			{
@@ -139,7 +139,7 @@
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-6">
 						<div class="checkbox">
-							 <label><input type="checkbox" />记住我</label>
+							 <label><input id="rememberMe" name="rememberMe" type="checkbox" />记住我</label>
 						</div>
 					</div>
 				</div>

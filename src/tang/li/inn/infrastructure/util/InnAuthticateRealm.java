@@ -42,13 +42,14 @@ public class InnAuthticateRealm extends AuthorizingRealm
 			//name
 			String principal = (String) token.getPrincipal();
 			Staff staff = staffDao.findUniqueByProperty(InnConstant.T_STAFF_NAME,principal);
-			return new SimpleAuthenticationInfo(token.getPrincipal(), staff.getPassword(),getName());
+			if(staff != null)
+				return new SimpleAuthenticationInfo(token.getPrincipal(), staff.getPassword(),getName());
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
-			return null;
 		}
+		return null;
 		
 	}
 	
