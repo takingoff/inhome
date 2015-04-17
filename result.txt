@@ -1,0 +1,179 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building inhome 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] >>> jetty-maven-plugin:9.1.0.v20131115:run (default-cli) > test-compile @ inhome >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ inhome ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 7 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ inhome ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 94 source files to C:\Users\TangLi\git\inhome\target\classes
+[WARNING] /C:/Users/TangLi/git/inhome/src/main/java/tang/li/inn/infrastructure/util/SQLiteDialect.java: C:\Users\TangLi\git\inhome\src\main\java\tang\li\inn\infrastructure\util\SQLiteDialect.java使用或覆盖了已过时的 API。
+[WARNING] /C:/Users/TangLi/git/inhome/src/main/java/tang/li/inn/infrastructure/util/SQLiteDialect.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ inhome ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\TangLi\git\inhome\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ inhome ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] <<< jetty-maven-plugin:9.1.0.v20131115:run (default-cli) < test-compile @ inhome <<<
+[INFO] 
+[INFO] --- jetty-maven-plugin:9.1.0.v20131115:run (default-cli) @ inhome ---
+[INFO] Configuring Jetty for project: inhome
+[INFO] webAppSourceDirectory not set. Trying src\main\webapp
+[INFO] Reload Mechanic: automatic
+[INFO] Classes = C:\Users\TangLi\git\inhome\target\classes
+[INFO] Context path = /inhome
+[INFO] Tmp directory = C:\Users\TangLi\git\inhome\target\tmp
+[INFO] Web defaults = org/eclipse/jetty/webapp/webdefault.xml
+[INFO] Web overrides =  none
+[INFO] web.xml file = file:/C:/Users/TangLi/git/inhome/src/main/webapp/WEB-INF/web.xml
+[INFO] Webapp directory = C:\Users\TangLi\git\inhome\src\main\webapp
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@class tang.li.inn.entity.staff.Staff
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@class tang.li.inn.entity.staff.StaffLog
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@class tang.li.inn.entity.bill.BillRoom
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@class tang.li.inn.entity.bill.BillPay
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@class tang.li.inn.entity.bill.BillConsume
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@class tang.li.inn.entity.entered.EnteredInfo
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@class tang.li.inn.entity.order.Order
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@class tang.li.inn.entity.room.Room
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@class tang.li.inn.entity.room.RoomType
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@class tang.li.inn.entity.entry.InnEntry
+/***************AopTraceStartup***************/
+[INFO] Started Jetty Server
+++++++++++请求地址：common/enterLogin.do ===> CommonController.enterLogin()
+++++++++++请求地址：common/authCode.do ===> CommonController.genAuthCode(null null )
+++++++++++请求地址：common/authCode.do ===> CommonController.genAuthCode(request response )
+++++++++++请求地址：common/login.do ===> CommonController.staffLogin(null null null null null )
+**********执行：StaffDaoImpl.findUniqueByProperty(name,tangli)
+Hibernate: select this_.id as id1_8_0_, this_.gen_Time as gen_Time2_8_0_, this_.level as level3_8_0_, this_.name as name4_8_0_, this_.password as password5_8_0_ from T_STAFF this_ where this_.name=?
+**********执行：StaffServiceImpl.findStaffByName(tangli)
+**********执行：StaffDaoImpl.findByProperty(name,tangli)
+Hibernate: select this_.id as id1_8_0_, this_.gen_Time as gen_Time2_8_0_, this_.level as level3_8_0_, this_.name as name4_8_0_, this_.password as password5_8_0_ from T_STAFF this_ where this_.name=?
+**********执行：InnEntryServiceImpl.getAll()
+**********执行：InnEntryDaoImpl.findAll()
+Hibernate: select this_.innKey as innKey1_4_0_, this_.value as value2_4_0_ from T_INN_CONTAINER this_
+++++++++++请求地址：common/controlCenter.do ===> CommonController.enterControlCenter()
+XXXXXXXXXX：请求将会被拦截,是普通访问
+++++++++++请求地址：room/roomTrendView.do ===> RoomController.roomTrendView(null )
+XXXXXXXXXX：请求将会被拦截,是普通访问
+++++++++++请求地址：room/roomPageView.do ===> RoomController.roomPageView(null )
+XXXXXXXXXX：请求将会被拦截,是普通访问
+++++++++++请求地址：roomType/roomType.do ===> RoomTypeController.paginationRoomTypeView()
+XXXXXXXXXX：请求将会被拦截,是普通访问
+++++++++++请求地址：roomType/roomTypePage.do ===> RoomTypeController.roomTypePage(null )
+XXXXXXXXXX：请求将会被拦截,是ajax访问
+**********执行：RoomTypeServiceImpl.juiPageFind(tang.li.inn.infrastructure.jui.JuiSortingCombineFilter@d2ffc5)
+**********执行：RoomTypeDaoImpl.juiPageFind(1,15,from RoomType  order by genTime DESC,[])
+Hibernate: select count(*) as col_0_0_ from T_ROOM_TYPE roomtype0_
+Hibernate: select roomtype0_.id as id1_7_, roomtype0_.day_Price as day_Pric2_7_, roomtype0_.description as descript3_7_, roomtype0_.gen_Time as gen_Time4_7_, roomtype0_.hour_Price as hour_Pri5_7_, roomtype0_.name as name6_7_ from T_ROOM_TYPE roomtype0_ order by roomtype0_.gen_Time DESC limit ?
+++++++++++请求地址：common/billPage.do ===> CommonController.enterBill()
+XXXXXXXXXX：请求将会被拦截,是普通访问
+++++++++++请求地址：billPay/billPayPage.do ===> BillPayController.billPayPage(null null )
+XXXXXXXXXX：请求将会被拦截,是ajax访问
+++++++++++请求地址：billConsume/billConsumePage.do ===> BillConsumeController.billConsumePage(null null )
+XXXXXXXXXX：请求将会被拦截,是ajax访问
+++++++++++请求地址：billRoom/billRoomPage.do ===> BillRoomController.billRoomPage(null null )
+XXXXXXXXXX：请求将会被拦截,是ajax访问
+++++++++++请求地址：billPay/billPayPage.do ===> BillPayController.billPayPage(jscf enteredId )
+XXXXXXXXXX：请求将会被拦截,是ajax访问
+++++++++++请求地址：billConsume/billConsumePage.do ===> BillConsumeController.billConsumePage(jscf enteredId )
+XXXXXXXXXX：请求将会被拦截,是ajax访问
+++++++++++请求地址：billRoom/billRoomPage.do ===> BillRoomController.billRoomPage(jscf enteredId )
+XXXXXXXXXX：请求将会被拦截,是ajax访问
+**********执行：BillRoomServiceImpl.juiPageFind(tang.li.inn.infrastructure.jui.JuiSortingCombineFilter@6b5ba6,null)
+**********执行：BillRoomDaoImpl.juiPageFind(1,15,from BillRoom  order by genDate DESC,[])
+Hibernate: select count(*) as col_0_0_ from T_BILL_ROOM billroom0_
+**********执行：BillPayServiceImpl.juiPageFind(tang.li.inn.infrastructure.jui.JuiSortingCombineFilter@89e240,null)
+**********执行：BillPayDaoImpl.juiPageFind(1,15,from BillPay  order by genTime DESC,[])
+**********执行：BillRoomServiceImpl.juiPageFind(tang.li.inn.infrastructure.jui.JuiSortingCombineFilter@1b633d6,null)
+**********执行：BillRoomDaoImpl.juiPageFind(1,15,from BillRoom  order by genDate DESC,[])
+Hibernate: select count(*) as col_0_0_ from T_BILL_ROOM billroom0_
+**********执行：BillPayServiceImpl.juiPageFind(tang.li.inn.infrastructure.jui.JuiSortingCombineFilter@1de94bc,null)
+**********执行：BillPayDaoImpl.juiPageFind(1,15,from BillPay  order by genTime DESC,[])
+**********执行：BillConsumeServiceImpl.juiPageFind(tang.li.inn.infrastructure.jui.JuiSortingCombineFilter@ceb421,null)
+**********执行：BillConsumeDaoImpl.juiPageFind(1,15,from BillConsume  order by genTime DESC,[])
+**********执行：BillConsumeServiceImpl.juiPageFind(tang.li.inn.infrastructure.jui.JuiSortingCombineFilter@179255f,null)
+**********执行：BillConsumeDaoImpl.juiPageFind(1,15,from BillConsume  order by genTime DESC,[])
+Hibernate: select count(*) as col_0_0_ from T_BILL_PAY billpay0_
+Hibernate: select count(*) as col_0_0_ from T_BILL_PAY billpay0_
+Hibernate: select count(*) as col_0_0_ from T_BILL_CONSUME billconsum0_
+Hibernate: select billroom0_.id as id1_2_, billroom0_.bill as bill2_2_, billroom0_.entered_Id as entered_5_2_, billroom0_.gen_Date as gen_Date3_2_, billroom0_.room_Id as room_Id6_2_, billroom0_.room_Expense_Type as room_Exp4_2_ from T_BILL_ROOM billroom0_ order by billroom0_.gen_Date DESC limit ?
+Hibernate: select count(*) as col_0_0_ from T_BILL_CONSUME billconsum0_
+Hibernate: select billpay0_.id as id1_1_, billpay0_.bill as bill2_1_, billpay0_.description as descript3_1_, billpay0_.entered_Id as entered_6_1_, billpay0_.gen_Time as gen_Time4_1_, billpay0_.pay_Way as pay_Way5_1_, billpay0_.room_Id as room_Id7_1_ from T_BILL_PAY billpay0_ order by billpay0_.gen_Time DESC limit ?
+Hibernate: select billpay0_.id as id1_1_, billpay0_.bill as bill2_1_, billpay0_.description as descript3_1_, billpay0_.entered_Id as entered_6_1_, billpay0_.gen_Time as gen_Time4_1_, billpay0_.pay_Way as pay_Way5_1_, billpay0_.room_Id as room_Id7_1_ from T_BILL_PAY billpay0_ order by billpay0_.gen_Time DESC limit ?
+Hibernate: select billroom0_.id as id1_2_, billroom0_.bill as bill2_2_, billroom0_.entered_Id as entered_5_2_, billroom0_.gen_Date as gen_Date3_2_, billroom0_.room_Id as room_Id6_2_, billroom0_.room_Expense_Type as room_Exp4_2_ from T_BILL_ROOM billroom0_ order by billroom0_.gen_Date DESC limit ?
+Hibernate: select billconsum0_.id as id1_0_, billconsum0_.bill as bill2_0_, billconsum0_.description as descript3_0_, billconsum0_.entered_Id as entered_5_0_, billconsum0_.gen_Time as gen_Time4_0_, billconsum0_.room_Id as room_Id6_0_ from T_BILL_CONSUME billconsum0_ order by billconsum0_.gen_Time DESC limit ?
+Hibernate: select billconsum0_.id as id1_0_, billconsum0_.bill as bill2_0_, billconsum0_.description as descript3_0_, billconsum0_.entered_Id as entered_5_0_, billconsum0_.gen_Time as gen_Time4_0_, billconsum0_.room_Id as room_Id6_0_ from T_BILL_CONSUME billconsum0_ order by billconsum0_.gen_Time DESC limit ?
+++++++++++请求地址：entered/enteredPageView.do ===> EnteredController.enteredPageView()
+XXXXXXXXXX：请求将会被拦截,是普通访问
+**********执行：InnErrors.getError(inn.dao.pageFind)
+**********执行：InnErrors.getError(inn.dao.pageFind)
+**********执行：InnError.getCode()
+**********执行：InnError.getCode()
+**********执行：InnError.getInfo()
+**********执行：InnError.getInfo()
+**********执行：InnError.getDes()
+**********执行：InnError.getDes()
+**********执行：InnErrors.getError(inn.service.get)
+**********执行：InnError.getCode()
+**********执行：InnError.getInfo()
+**********执行：InnError.getDes()
+**********执行：InnErrors.getError(inn.service.get)
+**********执行：InnError.getCode()
+**********执行：InnError.getInfo()
+**********执行：InnError.getDes()
+++++++++++请求地址：roomType/roomTypeGet.do ===> RoomTypeController.roomTypeGet(null )
+XXXXXXXXXX：请求将会被拦截,是ajax访问
+**********执行：RoomTypeServiceImpl.getById(431c4c67-f752-4e00-ae7f-0b8d5db9df48)
+**********执行：RoomTypeDaoImpl.get(431c4c67-f752-4e00-ae7f-0b8d5db9df48)
+Hibernate: select roomtype0_.id as id1_7_0_, roomtype0_.day_Price as day_Pric2_7_0_, roomtype0_.description as descript3_7_0_, roomtype0_.gen_Time as gen_Time4_7_0_, roomtype0_.hour_Price as hour_Pri5_7_0_, roomtype0_.name as name6_7_0_ from T_ROOM_TYPE roomtype0_ where roomtype0_.id=?
+++++++++++请求地址：roomType/roomTypeGet.do ===> RoomTypeController.roomTypeGet(id )
+XXXXXXXXXX：请求将会被拦截,是ajax访问
+**********执行：RoomTypeServiceImpl.getById(e6360eee-77b9-4c29-837a-c87f4b6fa15e)
+**********执行：RoomTypeDaoImpl.get(e6360eee-77b9-4c29-837a-c87f4b6fa15e)
+Hibernate: select roomtype0_.id as id1_7_0_, roomtype0_.day_Price as day_Pric2_7_0_, roomtype0_.description as descript3_7_0_, roomtype0_.gen_Time as gen_Time4_7_0_, roomtype0_.hour_Price as hour_Pri5_7_0_, roomtype0_.name as name6_7_0_ from T_ROOM_TYPE roomtype0_ where roomtype0_.id=?
+++++++++++请求地址：common/controlCenter.do ===> CommonController.enterControlCenter()
+XXXXXXXXXX：请求将会被拦截,是普通访问
+++++++++++请求地址：room/roomTrendView.do ===> RoomController.roomTrendView(mv )
+XXXXXXXXXX：请求将会被拦截,是普通访问
+++++++++++请求地址：room/roomPageView.do ===> RoomController.roomPageView(mv )
+XXXXXXXXXX：请求将会被拦截,是普通访问
+++++++++++请求地址：common/logout.do ===> CommonController.logout(null null null )
+++++++++++请求地址：common/enterLogin.do ===> CommonController.enterLogin()
+++++++++++请求地址：common/authCode.do ===> CommonController.genAuthCode(request response )
+++++++++++请求地址：common/login.do ===> CommonController.staffLogin(name password authCode rememberMe session )
+**********执行：StaffDaoImpl.findUniqueByProperty(name,tangli)
+Hibernate: select this_.id as id1_8_0_, this_.gen_Time as gen_Time2_8_0_, this_.level as level3_8_0_, this_.name as name4_8_0_, this_.password as password5_8_0_ from T_STAFF this_ where this_.name=?
+**********执行：StaffServiceImpl.findStaffByName(tangli)
+**********执行：StaffDaoImpl.findByProperty(name,tangli)
+Hibernate: select this_.id as id1_8_0_, this_.gen_Time as gen_Time2_8_0_, this_.level as level3_8_0_, this_.name as name4_8_0_, this_.password as password5_8_0_ from T_STAFF this_ where this_.name=?
+**********执行：InnEntryServiceImpl.getAll()
+**********执行：InnEntryDaoImpl.findAll()
+Hibernate: select this_.innKey as innKey1_4_0_, this_.value as value2_4_0_ from T_INN_CONTAINER this_
+++++++++++请求地址：common/controlCenter.do ===> CommonController.enterControlCenter()
+XXXXXXXXXX：请求将会被拦截,是普通访问
+++++++++++请求地址：room/roomTrendView.do ===> RoomController.roomTrendView(mv )
+XXXXXXXXXX：请求将会被拦截,是普通访问
+++++++++++请求地址：room/roomPageView.do ===> RoomController.roomPageView(mv )
+XXXXXXXXXX：请求将会被拦截,是普通访问
+++++++++++请求地址：entered/enteredPageView.do ===> EnteredController.enteredPageView()
+XXXXXXXXXX：请求将会被拦截,是普通访问
+++++++++++请求地址：room/roomPageView.do ===> RoomController.roomPageView(mv )
+XXXXXXXXXX：请求将会被拦截,是普通访问
+[INFO] Jetty server exiting.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:13 min
+[INFO] Finished at: 2015-04-17T11:17:45+08:00
+[INFO] Final Memory: 34M/94M
+[INFO] ------------------------------------------------------------------------
+终止批处理操作吗(Y/N)? 

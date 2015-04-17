@@ -56,7 +56,7 @@ public class RoomController
 	@RequestMapping("/roomTrendView")
 	public String roomTrendView(ModelMap mv)
 	{
-		return "/room/roomTrend";
+		return "room/roomTrend";
 	}
 	
 	
@@ -126,7 +126,7 @@ public class RoomController
 	@RequestMapping("/roomPageView")
 	public String roomPageView(ModelMap mv)
 	{
-		return "/room/paginationRoom";
+		return "room/paginationRoom";
 	}
 	
 	

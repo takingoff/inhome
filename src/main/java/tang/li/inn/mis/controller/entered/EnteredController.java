@@ -190,7 +190,7 @@ public class EnteredController
 	@RequestMapping("/enteredPageView")
 	public String enteredPageView()
 	{
-		return "/entered/paginationEntered";
+		return "entered/paginationEntered";
 	}
 	
 	@RequestMapping("/enteredPage")
